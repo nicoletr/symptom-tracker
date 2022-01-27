@@ -1,0 +1,17 @@
+name: Deploy
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: akhileshns/heroku-deploy@v3.12.11
+        with:
+          heroku_api_key: "648bd798-d0c5-4ca2-9ffe-3a08f4328dbe"
+          heroku_app_name: "symptom-tracker-nt"
+          heroku_email: "nicole.trpevski@gmail.com"
