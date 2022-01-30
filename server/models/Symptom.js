@@ -11,7 +11,7 @@ const symptomSchema = new Schema({
   },
   rating: {
     painLevel: {
-      type: Int,
+      type: Number,
       required: true,
       min: 1,
       max: 10,

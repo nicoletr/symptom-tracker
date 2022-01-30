@@ -1,8 +1,7 @@
 const mongoose = require("mongoose");
 
 const { Schema } = mongoose;
-const Symptom = require("./Symptom");
-const Rating = require("./Rating");
+// const Symptom = require("./Symptom");
 
 const mealSchema = new Schema(
   {
@@ -33,8 +32,12 @@ const mealSchema = new Schema(
       default: Date.now(),
       get: formatDate,
     },
-    symptoms: [Symptom.schema],
-    rating: Rating.schema,
+    symptoms: [
+      {
+        type: Schema.Types.ObjectId,
+        ref: "Symptom",
+      },
+    ],
   },
   {
     toJSON: {

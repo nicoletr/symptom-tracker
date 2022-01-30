@@ -2,8 +2,7 @@ const mongoose = require("mongoose");
 const moment = require("moment");
 
 const { Schema } = mongoose;
-const Symptom = require("./Symptom");
-const Rating = require("./Rating");
+// const Symptom = require("./Symptom");
 
 const activitySchema = new Schema(
   {
@@ -34,8 +33,12 @@ const activitySchema = new Schema(
       default: Date.now(),
       get: formatDate,
     },
-    symptoms: [Symptom.schema],
-    rating: Rating.schema,
+    symptoms: [
+      {
+        type: Schema.Types.ObjectId,
+        ref: "Symptom",
+      },
+    ],
   },
   {
     toJSON: {
