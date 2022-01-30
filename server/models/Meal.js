@@ -10,7 +10,7 @@ const mealSchema = new Schema(
       type: String,
       required: true,
       trim: true,
-      max: 20,
+      maxlength: 20,
     },
     mealType: {
       type: String,
