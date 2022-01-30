@@ -22,8 +22,10 @@ const typeDefs = gql`
   }
 
   type Query {
-    user: User
-    activities: [Activity]
+    users: [User]
+    user(username: String!): User
+    activities(username: String): [Activity]
+    activity(activityId: ID!): Activity
     me: User
   }
 
