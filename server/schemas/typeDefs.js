@@ -15,6 +15,15 @@ const typeDefs = gql`
     intensity: String
     date: Date
   }
+  
+  type: Meal {
+    _id: ID
+    name: String
+    mealType: String
+    ingredients: [String]
+    portionSize: String
+    date: Date
+  }
 
   type Auth {
     token: ID
@@ -26,6 +35,8 @@ const typeDefs = gql`
     user(username: String!): User
     activities(username: String): [Activity]
     activity(activityId: ID!): Activity
+    meals(username: String): [Meal]
+    meal(mealId: ID!): Meal
     me: User
   }
 
@@ -38,8 +49,10 @@ const typeDefs = gql`
       intensity: String!
       date: Date!
     ): Auth
+    addMeal(name: String!, mealType: String!, ingredients: [String]!, portionSize: String!, date: Date!): Auth
     updateUser(username: String, email: String, password: String): User
     updateActivity(_id: ID!): Activity
+    updateMeal(_id: ID!): Meal
     login(email: String!, password: String!): Auth
   }
 `;

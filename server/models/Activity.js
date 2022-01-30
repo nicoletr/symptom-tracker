@@ -11,6 +11,7 @@ const activitySchema = new Schema(
       type: String,
       required: true,
       trim: true,
+      max: 20,
     },
     activityType: {
       type: String,

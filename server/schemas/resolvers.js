@@ -20,6 +20,13 @@ const resolvers = {
     activity: async (parent, { activityId }) => {
       return Activity.findOne({ _id: activityId });
     },
+    meals: async (parent, { username }) => {
+      const params = username ? { username } : {};
+      return Meal.find(params).sort({ createdAt: -1 });
+    },
+    meal: async (parent, { mealId }) => {
+      return Meal.findOne({ _id: mealId });
+    },
     me: async (parent, args, context) => {
       if (context.user) {
         return User.findOne({ _id: context.user._id })
@@ -36,18 +43,52 @@ const resolvers = {
 
       return { token, user };
     },
-    addActivity: async (parent, args, context) => {
-      console.log(context);
+    addActivity: async (
+      parent,
+      { name, activityType, duration, intensity, date },
+      context
+    ) => {
       if (context.user) {
-        const activity = new Activity(args);
-
-        await User.findByIdAndUpdate(context.user._id, {
-          $push: { activities: activity },
+        const activity = await Activity.create({
+          name,
+          activityType,
+          duration,
+          intensity,
+          date,
+          activityAuthor: context.user.username,
         });
+
+        await User.findOneAndUpdate(
+          { _id: context.user._id },
+          { $addToSet: { activities: activity._id } }
+        );
 
         return activity;
       }
+      throw new AuthenticationError("You need to be logged in!");
+    },
+    addMeal: async (
+      parent,
+      { name, mealType, ingredients, portionSize, date },
+      context
+    ) => {
+      if (context.user) {
+        const meal = await Meal.create({
+          name,
+          mealType,
+          ingredients,
+          portionSize,
+          date,
+          activityAuthor: context.user.username,
+        });
 
+        await User.findOneAndUpdate(
+          { _id: context.user._id },
+          { $addToSet: { meals: meal._id } }
+        );
+
+        return meal;
+      }
       throw new AuthenticationError("You need to be logged in!");
     },
     updateUser: async (parent, args, context) => {
@@ -59,9 +100,18 @@ const resolvers = {
 
       throw new AuthenticationError("You need to be logged in!");
     },
-    updateActivity: async (parent, { _id }, context) => {
+    updateActivity: async (parent, { _id, args }, context) => {
       if (context.user) {
-        return await Activity.findByIdAndUpdate(context.user._id, args, {
+        return await Activity.findByIdAndUpdate(_id, args, {
+          new: true,
+        });
+      }
+
+      throw new AuthenticationError("You need to be logged in!");
+    },
+    updateMeal: async (parent, { _id, args }, context) => {
+      if (context.user) {
+        return await Meal.findByIdAndUpdate(_id, args, {
           new: true,
         });
       }
