@@ -5,25 +5,20 @@ const { signToken } = require("../utils/auth");
 
 const resolvers = {
   Query: {
-    user: async (parent, args, context) => {
-      if (context.user) {
-        const user = await User.findById(context.user._id)
-          .populate("activities")
-          .populate("meals");
-
-        return user;
-      }
-      throw new AuthenticationError("You need to be logged in!");
+    users: async () => {
+      return User.find().populate("activities").populate("meals");
     },
-    activities: async (parent, { _id }, context) => {
-      if (context.user) {
-        const user = await User.findById(context.user._id).populate(
-          "activities"
-        );
-        return user.activities.id(_id);
-      }
-
-      throw new AuthenticationError("You need to be logged in!");
+    user: async (parent, { username }) => {
+      return User.findOne({ username })
+        .populate("activities")
+        .populate("meals");
+    },
+    activities: async (parent, { username }) => {
+      const params = username ? { username } : {};
+      return Activity.find(params).sort({ createdAt: -1 });
+    },
+    activity: async (parent, { activityId }) => {
+      return Activity.findOne({ _id: activityId });
     },
     me: async (parent, args, context) => {
       if (context.user) {
