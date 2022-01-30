@@ -5,6 +5,8 @@ const typeDefs = gql`
     _id: ID
     username: String
     email: String
+    activities: [Actvity]!
+    meals: [Meal]!
   }
 
   type Activity {
@@ -14,6 +16,7 @@ const typeDefs = gql`
     duration: Int
     intensity: String
     date: Date
+    symptoms: [Symptom]!
   }
   
   type: Meal {
@@ -23,8 +26,15 @@ const typeDefs = gql`
     ingredients: [String]
     portionSize: String
     date: Date
+    symptoms: [Symptom]!
   }
 
+  type Symptom {
+    _id: ID
+    symptomType: String
+    rating: Rating!
+  }
+  
   type Auth {
     token: ID
     user: User

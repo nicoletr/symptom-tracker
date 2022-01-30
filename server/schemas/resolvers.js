@@ -27,6 +27,13 @@ const resolvers = {
     meal: async (parent, { mealId }) => {
       return Meal.findOne({ _id: mealId });
     },
+    symptoms: async (parent, { username }) => {
+      const params = username ? { username } : {};
+      return Symptom.find(params).sort({ createdAt: -1 });
+    },
+    symptom: async (parent, { symptomId }) => {
+      return Symptom.findOne({ _id: symptomId });
+    },
     me: async (parent, args, context) => {
       if (context.user) {
         return User.findOne({ _id: context.user._id })
@@ -45,7 +52,7 @@ const resolvers = {
     },
     addActivity: async (
       parent,
-      { name, activityType, duration, intensity, date },
+      { name, activityType, duration, intensity, date, symptoms },
       context
     ) => {
       if (context.user) {
@@ -55,6 +62,7 @@ const resolvers = {
           duration,
           intensity,
           date,
+          symptoms,
           activityAuthor: context.user.username,
         });
 
@@ -69,7 +77,7 @@ const resolvers = {
     },
     addMeal: async (
       parent,
-      { name, mealType, ingredients, portionSize, date },
+      { name, mealType, ingredients, portionSize, date, symptoms },
       context
     ) => {
       if (context.user) {
@@ -79,6 +87,7 @@ const resolvers = {
           ingredients,
           portionSize,
           date,
+          symptoms,
           activityAuthor: context.user.username,
         });
 
