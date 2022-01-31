@@ -31,7 +31,6 @@ export const QUERY_ACTIVITIES = gql`
       duration
       intensity
       date
-      createdAt
     }
   }
 `;
@@ -45,7 +44,6 @@ export const QUERY_MEALS = gql`
       ingredients
       portionSize
       date
-      createdAt
     }
   }
 `;
@@ -59,7 +57,6 @@ export const QUERY_SINGLE_ACTIVITY = gql`
       duration
       intensity
       date
-      createdAt
       symptoms {
         _id
         symptomType
@@ -82,7 +79,6 @@ export const QUERY_SINGLE_MEAL = gql`
       ingredients
       portionSize
       date
-      createdAt
       symptoms {
         _id
         symptomType
@@ -131,14 +127,12 @@ export const QUERY_ME = gql`
         name
         activityType
         date
-        createdAt
       }
       meals {
         _id
         name
         mealType
         date
-        createdAt
       }
     }
   }
