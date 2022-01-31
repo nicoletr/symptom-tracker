@@ -109,7 +109,7 @@ const resolvers = {
 
       throw new AuthenticationError("You need to be logged in!");
     },
-    updateActivity: async (parent, { _id, args }, context) => {
+    updateActivity: async (parent, { activityId, args }, context) => {
       if (context.user) {
         return await Activity.findByIdAndUpdate(_id, args, {
           new: true,
@@ -118,13 +118,45 @@ const resolvers = {
 
       throw new AuthenticationError("You need to be logged in!");
     },
-    updateMeal: async (parent, { _id, args }, context) => {
+    updateMeal: async (parent, { mealId, args }, context) => {
       if (context.user) {
         return await Meal.findByIdAndUpdate(_id, args, {
           new: true,
         });
       }
 
+      throw new AuthenticationError("You need to be logged in!");
+    },
+    removeActivity: async (parent, { activityId }, context) => {
+      if (context.user) {
+        const activity = await Activity.findOneAndDelete({
+          _id: activityId,
+          activityAuthor: context.user.username,
+        });
+
+        await User.findOneAndUpdate(
+          { _id: context.user._id },
+          { $pull: { activities: activity._id } }
+        );
+
+        return activity;
+      }
+      throw new AuthenticationError("You need to be logged in!");
+    },
+    removeMeal: async (parent, { mealId }, context) => {
+      if (context.user) {
+        const meal = await Meal.findOneAndDelete({
+          _id: mealId,
+          mealAuthor: context.user.username,
+        });
+
+        await User.findOneAndUpdate(
+          { _id: context.user._id },
+          { $pull: { meals: meal._id } }
+        );
+
+        return meal;
+      }
       throw new AuthenticationError("You need to be logged in!");
     },
     login: async (parent, { email, password }) => {

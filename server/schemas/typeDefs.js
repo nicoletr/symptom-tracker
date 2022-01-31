@@ -77,6 +77,8 @@ const typeDefs = gql`
     updateUser(username: String, email: String, password: String): User
     updateActivity(_id: ID!): Activity
     updateMeal(_id: ID!): Meal
+    removeActivity(_id: ID!): Activity
+    removeMeal(_id: ID!): Meal
     login(email: String!, password: String!): Auth
   }
 `;
