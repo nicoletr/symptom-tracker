@@ -1,3 +1,5 @@
+import { useReducer } from "react";
+
 // Import all actions
 import {
   ADD_USER,
@@ -10,7 +12,7 @@ import {
   REMOVE_MEAL,
 } from "./actions";
 
-export default function reducer(state, action) {
+export const reducer = (state, action) => {
   switch (action.type) {
     case ADD_USER: {
       const newUserId = state.users[state.users.length - 1].id + 1;
@@ -118,4 +120,8 @@ export default function reducer(state, action) {
     default:
       return state;
   }
+};
+
+export function useUserReducer(initialState) {
+  return useReducer(reducer, initialState);
 }
