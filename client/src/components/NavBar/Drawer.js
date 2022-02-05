@@ -9,6 +9,7 @@ import {
 } from "@material-ui/core";
 import MenuIcon from "@material-ui/icons/Menu";
 import { Link } from "react-router-dom";
+import AuthService from "../../utils/auth";
 
 const useStyles = makeStyles(() => ({
   link: {
@@ -24,6 +25,8 @@ const useStyles = makeStyles(() => ({
 function DrawerComponent() {
   const classes = useStyles();
   const [openDrawer, setOpenDrawer] = useState(false);
+  const isLoggedIn = AuthService.loggedIn();
+
   return (
     <>
       <Drawer
@@ -41,22 +44,21 @@ function DrawerComponent() {
           </ListItem>
           <ListItem onClick={() => setOpenDrawer(false)}>
             <ListItemText>
-              <Link className={classes.link} to="/about">
-                About
-              </Link>
+              {isLoggedIn ? (
+                <Link to="/logout" className={classes.link}>
+                  Logout
+                </Link>
+              ) : (
+                <Link to="/login" className={classes.link}>
+                  Login
+                </Link>
+              )}
             </ListItemText>
           </ListItem>
           <ListItem onClick={() => setOpenDrawer(false)}>
             <ListItemText>
               <Link className={classes.link} to="/contact">
-                Contact
-              </Link>
-            </ListItemText>
-          </ListItem>
-          <ListItem onClick={() => setOpenDrawer(false)}>
-            <ListItemText>
-              <Link className={classes.link} to="/about">
-                Faq
+                Contact Us
               </Link>
             </ListItemText>
           </ListItem>

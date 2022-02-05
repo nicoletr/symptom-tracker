@@ -10,6 +10,7 @@ import {
 } from "@material-ui/core";
 import { Link } from "react-router-dom";
 import DrawerComponent from "./Drawer";
+import AuthService from "../../utils/auth";
 
 const useStyles = makeStyles((theme) => ({
   navlinks: {
@@ -36,13 +37,14 @@ function Navbar() {
   const classes = useStyles();
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("md"));
+  const isLoggedIn = AuthService.loggedIn();
 
   return (
     <AppBar position="static">
       <CssBaseline />
       <Toolbar>
         <Typography variant="h4" className={classes.logo}>
-          Navbar
+          Symptom Tracker
         </Typography>
         {isMobile ? (
           <DrawerComponent />
@@ -51,14 +53,17 @@ function Navbar() {
             <Link to="/" className={classes.link}>
               Home
             </Link>
-            <Link to="/about" className={classes.link}>
-              About
-            </Link>
+            {isLoggedIn ? (
+              <Link to="/logout" className={classes.link}>
+                Logout
+              </Link>
+            ) : (
+              <Link to="/login" className={classes.link}>
+                Login
+              </Link>
+            )}
             <Link to="/contact" className={classes.link}>
-              Contact
-            </Link>
-            <Link to="/faq" className={classes.link}>
-              FAQ
+              Contact Us
             </Link>
           </div>
         )}
