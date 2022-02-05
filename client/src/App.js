@@ -47,10 +47,10 @@ function App() {
             <CssBaseline />
             <Routes>
               <Route exact path="/" element={<Home />} />
-              <Route exact path="/login" element={Login} />
-              <Route exact path="/signup" element={Signup} />
-              <Route exact path="/dashboard" element={Dashboard} />
-              <Route element={NoMatch} />
+              <Route exact path="/login" element={<Login />} />
+              <Route exact path="/signup" element={<Signup />} />
+              <Route exact path="/dashboard" element={<Dashboard />} />
+              <Route element={<NoMatch />} />
             </Routes>
             <Footer />
           </StoreProvider>
