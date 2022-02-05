@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import {
   ApolloClient,
   InMemoryCache,
@@ -13,7 +13,7 @@ import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import NoMatch from "./pages/NoMatch";
 import Dashboard from "./pages/Dashboard";
-import NavTabs from "./components/NavBar";
+import NavBar from "./components/NavBar";
 import Footer from "./components/Footer";
 import { StoreProvider } from "./utils/GlobalState";
 
@@ -42,14 +42,14 @@ function App() {
       <Router>
         <div>
           <StoreProvider>
-            <NavTabs />
-            <Switch>
+            <NavBar />
+            <Routes>
               <Route exact path="/" component={Home} />
               <Route exact path="/login" component={Login} />
               <Route exact path="/signup" component={Signup} />
               <Route exact path="/dashboard" component={Dashboard} />
               <Route component={NoMatch} />
-            </Switch>
+            </Routes>
             <Footer />
           </StoreProvider>
         </div>
