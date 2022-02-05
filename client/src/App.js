@@ -6,6 +6,7 @@ import {
   ApolloProvider,
   createHttpLink,
 } from "@apollo/client";
+import CssBaseline from "@mui/material/CssBaseline";
 import { setContext } from "@apollo/client/link/context";
 import { StoreProvider } from "./utils/GlobalState";
 
@@ -43,12 +44,13 @@ function App() {
         <div>
           <StoreProvider>
             <NavBar />
+            <CssBaseline />
             <Routes>
-              <Route exact path="/" component={Home} />
-              <Route exact path="/login" component={Login} />
-              <Route exact path="/signup" component={Signup} />
-              <Route exact path="/dashboard" component={Dashboard} />
-              <Route component={NoMatch} />
+              <Route exact path="/" element={<Home />} />
+              <Route exact path="/login" element={Login} />
+              <Route exact path="/signup" element={Signup} />
+              <Route exact path="/dashboard" element={Dashboard} />
+              <Route element={NoMatch} />
             </Routes>
             <Footer />
           </StoreProvider>
