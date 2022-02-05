@@ -1,8 +1,9 @@
 import React from "react";
-import { Container } from "@mui/material";
+
+import SignupForm from "../components/SignupForm";
 
 const Signup = () => {
-  return <Container></Container>;
+  return <SignupForm />;
 };
 
 export default Signup;
