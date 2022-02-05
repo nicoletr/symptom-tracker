@@ -1,5 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
+
+import { useMutation } from "@apollo/client";
+import { ADD_USER } from "../../utils/mutations";
+import AuthService from "../../utils/auth";
+
 import { makeStyles } from "@material-ui/core/styles";
 import Avatar from "@material-ui/core/Avatar";
 import Button from "@material-ui/core/Button";
@@ -9,6 +14,7 @@ import Grid from "@material-ui/core/Grid";
 import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
 import Typography from "@material-ui/core/Typography";
 import Container from "@material-ui/core/Container";
+import Box from "@mui/material/Box";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -36,6 +42,37 @@ const useStyles = makeStyles((theme) => ({
 const SignupForm = () => {
   const classes = useStyles();
 
+  const [formState, setFormState] = useState({
+    username: "",
+    email: "",
+    password: "",
+  });
+  const [addUser, { error }] = useMutation(ADD_USER);
+
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+
+    setFormState({
+      ...formState,
+      [name]: value,
+    });
+  };
+
+  const handleFormSubmit = async (event) => {
+    event.preventDefault();
+    console.log(formState);
+
+    try {
+      const { data } = await addUser({
+        variables: { ...formState },
+      });
+
+      AuthService.login(data.addUser.token);
+    } catch (e) {
+      console.error(e);
+    }
+  };
+
   return (
     <Container component="main" maxWidth="xs">
       <CssBaseline />
@@ -46,7 +83,7 @@ const SignupForm = () => {
         <Typography component="h1" variant="h5">
           Sign up
         </Typography>
-        <form className={classes.form} noValidate>
+        <Box component="form" onSubmit={handleFormSubmit} noValidate>
           <Grid container spacing={2}>
             <Grid item xs={12} sm={6}>
               <TextField
@@ -57,6 +94,8 @@ const SignupForm = () => {
                 label="Username"
                 name="username"
                 autoComplete="uname"
+                value={formState.name}
+                onChange={handleChange}
               />
             </Grid>
             <Grid item xs={12}>
@@ -68,6 +107,8 @@ const SignupForm = () => {
                 label="Email Address"
                 name="email"
                 autoComplete="email"
+                value={formState.email}
+                onChange={handleChange}
               />
             </Grid>
             <Grid item xs={12}>
@@ -80,9 +121,18 @@ const SignupForm = () => {
                 type="password"
                 id="password"
                 autoComplete="current-password"
+                value={formState.password}
+                onChange={handleChange}
               />
             </Grid>
           </Grid>
+          {error ? (
+            <div>
+              <p className={classes.error}>
+                {"Email or username already in use!"}
+              </p>
+            </div>
+          ) : null}
           <Button
             type="submit"
             fullWidth
@@ -99,7 +149,7 @@ const SignupForm = () => {
               </Link>
             </Grid>
           </Grid>
-        </form>
+        </Box>
       </div>
     </Container>
   );

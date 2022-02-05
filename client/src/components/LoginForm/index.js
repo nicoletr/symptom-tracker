@@ -1,5 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import { useMutation } from "@apollo/client";
+import { LOGIN_USER } from "../../utils/mutations";
+import AuthService from "../../utils/auth";
+
 import { makeStyles } from "@material-ui/core/styles";
 import Avatar from "@material-ui/core/Avatar";
 import Button from "@material-ui/core/Button";
@@ -11,6 +15,7 @@ import Paper from "@material-ui/core/Paper";
 import Grid from "@material-ui/core/Grid";
 import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
 import Typography from "@material-ui/core/Typography";
+import Box from "@mui/material/Box";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -33,10 +38,47 @@ const useStyles = makeStyles((theme) => ({
   submit: {
     margin: theme.spacing(3, 0, 2),
   },
+  error: {
+    alignItems: "center",
+  },
 }));
 
 const LoginForm = () => {
   const classes = useStyles();
+
+  const [formState, setFormState] = useState({ email: "", password: "" });
+  const [login, { error }] = useMutation(LOGIN_USER);
+
+  // update state based on form input changes
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+
+    setFormState({
+      ...formState,
+      [name]: value,
+    });
+  };
+
+  // submit form
+  const handleFormSubmit = async (event) => {
+    event.preventDefault();
+    console.log(formState);
+    try {
+      const { data } = await login({
+        variables: { ...formState },
+      });
+
+      AuthService.login(data.login.token);
+    } catch (e) {
+      console.error(e);
+    }
+
+    // clear form values
+    setFormState({
+      email: "",
+      password: "",
+    });
+  };
 
   return (
     <Grid container component="main" className={classes.root}>
@@ -49,7 +91,7 @@ const LoginForm = () => {
           <Typography component="h1" variant="h5">
             Sign in
           </Typography>
-          <form className={classes.form} noValidate>
+          <Box component="form" onSubmit={handleFormSubmit} noValidate>
             <TextField
               variant="outlined"
               margin="normal"
@@ -60,6 +102,8 @@ const LoginForm = () => {
               name="email"
               autoComplete="email"
               autoFocus
+              value={formState.email}
+              onChange={handleChange}
             />
             <TextField
               variant="outlined"
@@ -71,11 +115,21 @@ const LoginForm = () => {
               type="password"
               id="password"
               autoComplete="current-password"
+              value={formState.password}
+              onChange={handleChange}
             />
             <FormControlLabel
               control={<Checkbox value="remember" color="primary" />}
               label="Remember me"
             />
+            {error ? (
+              <div>
+                <p className={classes.error}>
+                  {"Email or password incorrect!"} <br />
+                  {"Please check and try again"}
+                </p>
+              </div>
+            ) : null}
             <Button
               type="submit"
               fullWidth
@@ -92,7 +146,7 @@ const LoginForm = () => {
                 </Link>
               </Grid>
             </Grid>
-          </form>
+          </Box>
         </div>
       </Grid>
     </Grid>
