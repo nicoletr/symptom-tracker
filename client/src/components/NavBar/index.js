@@ -29,7 +29,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-function NavBar() {
+export default function NavBar() {
   const classes = useStyles();
 
   return (
@@ -57,4 +57,3 @@ function NavBar() {
     </AppBar>
   );
 }
-export default NavBar;
