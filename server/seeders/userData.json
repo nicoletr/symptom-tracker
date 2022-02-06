@@ -1,5 +1,28 @@
 [
-  {"username":"sdacke0","email":"ehammill0@springer.com","password":"hjdniYjSwOi"},
+  {"username":"sdacke0",
+    "email":"ehammill0@springer.com",
+    "password":"hjdniYjSwOi", 
+    "actvities":
+    [
+      {
+        "name": "Morning run", 
+        "activityType": "Running", 
+        "duration": 30, 
+        "intensity": "Hard", 
+        "date": "February 2nd 2022, 1:30 pm", 
+        "symptoms": 
+        [ 
+          { "symptomType": "Joint pain", 
+            "rating": 
+            { 
+              "painLevel": "5", 
+              "mood": "Sad"
+            } 
+          }
+        ]
+      }
+    ]
+  },
   {"username":"udoni1","email":"vyeldham1@hud.gov","password":"2w2GwB1B"},
   {"username":"tamsden2","email":"ogeach2@discuz.net","password":"oPNur06"},
   {"username":"omaccathay3","email":"ghasley3@odnoklassniki.ru","password":"ZNDXPe9"},
