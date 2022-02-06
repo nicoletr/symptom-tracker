@@ -38,6 +38,10 @@ function Navbar() {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("md"));
   const isLoggedIn = AuthService.loggedIn();
+  const logout = (event) => {
+    event.preventDefault();
+    AuthService.logout();
+  };
 
   return (
     <AppBar position="static">
@@ -54,7 +58,7 @@ function Navbar() {
               Home
             </Link>
             {isLoggedIn ? (
-              <Link to="/logout" className={classes.link}>
+              <Link to="/logout" className={classes.link} onClick={logout}>
                 Logout
               </Link>
             ) : (

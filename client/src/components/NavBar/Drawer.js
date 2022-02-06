@@ -26,6 +26,10 @@ function DrawerComponent() {
   const classes = useStyles();
   const [openDrawer, setOpenDrawer] = useState(false);
   const isLoggedIn = AuthService.loggedIn();
+  const logout = (event) => {
+    event.preventDefault();
+    AuthService.logout();
+  };
 
   return (
     <>
@@ -45,7 +49,7 @@ function DrawerComponent() {
           <ListItem onClick={() => setOpenDrawer(false)}>
             <ListItemText>
               {isLoggedIn ? (
-                <Link to="/logout" className={classes.link}>
+                <Link to="/logout" className={classes.link} onClick={logout}>
                   Logout
                 </Link>
               ) : (
