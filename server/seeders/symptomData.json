@@ -1,155 +1,51 @@
 [
-  {
-    "symptomType": "Fatigue"
+  { "symptomType": "Joint pain", 
+    "rating": 
+    { 
+      "painLevel": "5", 
+      "mood": "Bad"
+    } 
   },
-  {
-    "symptomType": "Loss of appetite"
+  { "symptomType": "Bruising", 
+    "rating": 
+    { 
+      "painLevel": "9", 
+      "mood": "Fine"
+    } 
   },
-  {
-    "symptomType": "Itchy skin"
+  { "symptomType": "Constipation", 
+    "rating": 
+    { 
+      "painLevel": "3", 
+      "mood": "Fine"
+    } 
   },
-  {
-    "symptomType": "Dry skin"
+  { "symptomType": "Fever", 
+    "rating": 
+    { 
+      "painLevel": "7", 
+      "mood": "Bad"
+    } 
   },
-  {
-    "symptomType": "Bruising"
+  { "symptomType": "Toothache", 
+    "rating": 
+    { 
+      "painLevel": "1", 
+      "mood": "Good"
+    } 
   },
-  {
-    "symptomType": "Sore tongue"
+  { "symptomType": "Loss of appetite", 
+    "rating": 
+    { 
+      "painLevel": "6", 
+      "mood": "Fine"
+    } 
   },
-  {
-    "symptomType": "Headaches"
-  },
-  {
-    "symptomType": "Heartburn"
-  },
-  {
-    "symptomType": "Indigestion"
-  },
-  {
-    "symptomType": "Nausea"
-  },
-  {
-    "symptomType": "Stomacheache"
-  },
-  {
-    "symptomType": "Stomache Cramps"
-  },
-  {
-    "symptomType": "Abdominal Cramps/Pain"
-  },
-  {
-    "symptomType": "Acid Reflux"
-  },
-  {
-    "symptomType": "Constipation"
-  },
-  {
-    "symptomType": "Diarrhea"
-  },
-  {
-    "symptomType": "Flatulence/Gas"
-  },
-  {
-    "symptomType": "Acne"
-  },
-  {
-    "symptomType": "Arthritis"
-  },
-  {
-    "symptomType": "Bloating"
-  },
-  {
-    "symptomType": "Back (lower) pain"
-  },
-  {
-    "symptomType": "Back (upper) pain"
-  },
-  {
-    "symptomType": "Chest pain"
-  },
-  {
-    "symptomType": "Cough"
-  },
-  {
-    "symptomType": "Dermatitis"
-  },
-  {
-    "symptomType": "Dizziness"
-  },
-  {
-    "symptomType": "Drowsiness"
-  },
-  {
-    "symptomType": "Dry mouth"
-  },
-  {
-    "symptomType": "Earache"
-  },
-  {
-    "symptomType": "Eczema"
-  },
-  {
-    "symptomType": "Eye pain"
-  },
-  {
-    "symptomType": "Fever"
-  },
-  {
-    "symptomType": "Heart palpitations"
-  },
-  {
-    "symptomType": "Jaw pain"
-  },
-  {
-    "symptomType": "Joint pain"
-  },
-  {
-    "symptomType": "Migraine"
-  },
-  {
-    "symptomType": "Mouth sores"
-  },
-  {
-    "symptomType": "Neck pain"
-  },
-  {
-    "symptomType": "Rash"
-  },
-  {
-    "symptomType": "Seizure"
-  },
-  {
-    "symptomType": "Shortness of breath"
-  },
-  {
-    "symptomType": "Sinus congestion"
-  },
-  {
-    "symptomType": "Tinnitus"
-  },
-  {
-    "symptomType": "Toothache"
-  },
-  {
-    "symptomType": "Tremors"
-  },
-  {
-    "symptomType": "Vertigo"
-  },
-  {
-    "symptomType": "Period pains"
-  },
-  {
-    "symptomType": "Nightsweats"
-  },
-  {
-    "symptomType": "Vaginal spotting"
-  },
-  {
-    "symptomType": "Vaginal discharge"
-  },
-  {
-    "symptomType": "Back (lower) pain"
+  { "symptomType": "Bloating", 
+    "rating": 
+    { 
+      "painLevel": "1", 
+      "mood": "Good"
+    } 
   }
 ]

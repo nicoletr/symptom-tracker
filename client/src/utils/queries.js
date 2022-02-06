@@ -31,6 +31,14 @@ export const QUERY_ACTIVITIES = gql`
       duration
       intensity
       date
+      symptoms {
+        _id
+        symptomType
+        rating {
+          painLevel
+          mood
+        }
+      }
     }
   }
 `;
@@ -44,6 +52,14 @@ export const QUERY_MEALS = gql`
       ingredients
       portionSize
       date
+      symptoms {
+        _id
+        symptomType
+        rating {
+          painLevel
+          mood
+        }
+      }
     }
   }
 `;

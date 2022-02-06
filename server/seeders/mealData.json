@@ -1,0 +1,23 @@
+[
+  {
+    "name": "Sunday dinner",
+    "mealType": "Lasagna",
+    "ingredients": "Red meat, onion, garlic, pasta, tomato sauce, bechamel sauce, herbs",
+    "portionSize": "Large",
+    "date": 1643808600000
+  },
+  {
+    "name": "Breakfast smoothie",
+    "mealType": "Smoothie",
+    "ingredients": "Banana, berries, soy milk, peanut butter, oats, protein powder, water",
+    "portionSize": "Medium",
+    "date": 1644051600000
+  },
+  {
+    "name": "Snack",
+    "mealType": "Potato Crisps",
+    "ingredients": "Potato, oil, salt",
+    "portionSize": "Medium",
+    "date": 1642531500000
+  }
+]
