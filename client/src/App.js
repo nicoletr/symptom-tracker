@@ -16,6 +16,9 @@ import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import NoMatch from "./pages/NoMatch";
 import Dashboard from "./pages/Dashboard";
+import Activities from "./pages/Activities";
+import Meals from "./pages/Meals";
+import Symptoms from "./pages/Symptoms ";
 import NavBar from "./components/NavBar";
 import Footer from "./components/Footer";
 
@@ -56,6 +59,9 @@ function App() {
               )}
               <Route exact path="/login" element={<Login />} />
               <Route exact path="/signup" element={<Signup />} />
+              <Route exact path="/activities" element={<Activities />} />
+              <Route exact path="/meals" element={<Meals />} />
+              <Route exact path="/symptoms" element={<Symptoms />} />
               <Route element={<NoMatch />} />
             </Routes>
             <Footer />

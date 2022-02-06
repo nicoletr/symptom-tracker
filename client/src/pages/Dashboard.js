@@ -7,7 +7,7 @@ const Dashboard = () => {
   return (
     <Container maxWidth="xl">
       <Box sx={{ pb: 5 }}>
-        <Typography variant="h4">Hi User, welcome back!</Typography>
+        <Typography variant="h4">Hi user, welcome back!</Typography>
       </Box>
       <NewActivityButton />
       <BottomNav />

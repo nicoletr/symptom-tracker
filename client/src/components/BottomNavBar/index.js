@@ -1,4 +1,6 @@
 import React from "react";
+import { Link } from "react-router-dom";
+
 import BottomNavigation from "@mui/material/BottomNavigation";
 import BottomNavigationAction from "@mui/material/BottomNavigationAction";
 import Paper from "@mui/material/Paper";
@@ -20,22 +22,34 @@ function BottomNav() {
       elevation={3}
     >
       <BottomNavigation value={value} onChange={handleChange}>
-        <BottomNavigationAction label="Home" value="home" icon={<HomeIcon />} />
-        <BottomNavigationAction
-          label="My Meals"
-          value="meals"
-          icon={<RestaurantIcon />}
-        />
-        <BottomNavigationAction
-          label="My Activities"
-          value="activities"
-          icon={<FitnessCenterIcon />}
-        />
-        <BottomNavigationAction
-          label="My Symptoms"
-          value="symptoms"
-          icon={<SickIcon />}
-        />
+        <Link to="/">
+          <BottomNavigationAction
+            label="Home"
+            value="home"
+            icon={<HomeIcon />}
+          />
+        </Link>
+        <Link to="/activities">
+          <BottomNavigationAction
+            label="My Meals"
+            value="meals"
+            icon={<RestaurantIcon />}
+          />
+        </Link>
+        <Link to="/activities">
+          <BottomNavigationAction
+            label="My Activities"
+            value="activities"
+            icon={<FitnessCenterIcon />}
+          />
+        </Link>
+        <Link to="/symptoms">
+          <BottomNavigationAction
+            label="My Symptoms"
+            value="symptoms"
+            icon={<SickIcon />}
+          />
+        </Link>
       </BottomNavigation>
     </Paper>
   );
