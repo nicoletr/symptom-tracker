@@ -139,7 +139,7 @@ const LoginForm = () => {
             >
               Sign In
             </Button>
-            <Grid container>
+            <Grid container justifyContent="center">
               <Grid item>
                 <Link to="/signup" variant="body2">
                   {"Don't have an account? Sign Up"}
