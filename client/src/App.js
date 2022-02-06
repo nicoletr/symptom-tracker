@@ -9,6 +9,7 @@ import {
 import CssBaseline from "@mui/material/CssBaseline";
 import { setContext } from "@apollo/client/link/context";
 import { StoreProvider } from "./utils/GlobalState";
+import AuthService from "./utils/auth";
 
 import Home from "./pages/Home";
 import Login from "./pages/Login";
@@ -38,6 +39,8 @@ const client = new ApolloClient({
 });
 
 function App() {
+  const isLoggedIn = AuthService.loggedIn();
+
   return (
     <ApolloProvider client={client}>
       <Router>
@@ -46,10 +49,13 @@ function App() {
             <NavBar />
             <CssBaseline />
             <Routes>
-              <Route exact path="/" element={<Home />} />
+              {isLoggedIn ? (
+                <Route exact path="/" element={<Dashboard />} />
+              ) : (
+                <Route exact path="/" element={<Home />} />
+              )}
               <Route exact path="/login" element={<Login />} />
               <Route exact path="/signup" element={<Signup />} />
-              <Route exact path="/dashboard" element={<Dashboard />} />
               <Route element={<NoMatch />} />
             </Routes>
             <Footer />
