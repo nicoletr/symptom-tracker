@@ -1,4 +1,4 @@
-import React from "react";
+import { React, useState } from "react";
 
 import Button from "@mui/material/Button";
 import Container from "@mui/material/Container";
@@ -27,7 +27,7 @@ const useStyles = makeStyles((theme) => ({
 function NewActivityButton() {
   const classes = useStyles();
 
-  const [open, setOpen] = React.useState(false);
+  const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 

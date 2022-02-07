@@ -1,5 +1,7 @@
-import React from "react";
+import { React, useState } from "react";
 import { Link } from "react-router-dom";
+
+import AddSymptomForm from "../AddSymptomForm";
 
 import {
   Box,
@@ -8,9 +10,34 @@ import {
   CardContent,
   Typography,
   Card,
+  Dialog,
+  DialogContent,
+  DialogTitle,
 } from "@mui/material";
+import { makeStyles } from "@material-ui/core/styles";
+
+const useStyles = makeStyles((theme) => ({
+  root: {
+    height: "100vh",
+  },
+  paper: {
+    margin: theme.spacing(8, 4),
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+  },
+  close: {
+    margin: theme.spacing(3, 0, 2),
+  },
+}));
 
 function ActivityCard(props) {
+  const classes = useStyles();
+
+  const [open, setOpen] = useState(false);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
+
   return (
     <Box sx={{ minWidth: 275 }}>
       <Card variant="outlined">
@@ -29,7 +56,25 @@ function ActivityCard(props) {
           </Typography>
         </CardContent>
         <CardActions>
-          <Button size="small">Add Symptom</Button>
+          <Button variant="outlined" onClick={handleOpen}>
+            Add Symptom
+          </Button>
+          <Dialog open={open} onClose={handleClose}>
+            <DialogTitle>Add symptom</DialogTitle>
+            <DialogContent>
+              <AddSymptomForm />
+              <Button
+                type="close"
+                fullWidth
+                variant="contained"
+                color="primary"
+                className={classes.close}
+                onClick={handleClose}
+              >
+                Cancel
+              </Button>
+            </DialogContent>
+          </Dialog>
           <Button size="small">Details</Button>
         </CardActions>
       </Card>

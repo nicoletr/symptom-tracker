@@ -5,7 +5,7 @@ import { QUERY_SYMPTOMS, QUERY_ME } from "../../utils/queries";
 import AuthService from "../../utils/auth";
 
 import { makeStyles } from "@material-ui/core/styles";
-import ListItemIcon from "@mui/material";
+import ListItemIcon from "@mui/material/ListItemIcon";
 import SentimentSatisfiedAltIcon from "@mui/icons-material/SentimentSatisfiedAlt";
 import SentimentNeutralIcon from "@mui/icons-material/SentimentNeutral";
 import SentimentVeryDissatisfiedIcon from "@mui/icons-material/SentimentVeryDissatisfied";
@@ -123,10 +123,10 @@ function NewSymptomForm() {
               <FormControl fullWidth required>
                 <InputLabel>Symptom</InputLabel>
                 <Select
-                  id="symptoms"
+                  id="symptomType"
                   label="Symptom"
-                  name="symptoms"
-                  value={formState.symptoms}
+                  name="symptomType"
+                  value={formState.symptomType}
                   onChange={handleChange}
                 >
                   {symptoms.map((symptom) => (
