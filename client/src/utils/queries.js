@@ -121,8 +121,8 @@ export const QUERY_SINGLE_SYMPTOM = gql`
 `;
 
 export const QUERY_ME = gql`
-  query user($username: String!) {
-    user(username: $username) {
+  query me {
+    me {
       _id
       username
       email
@@ -131,12 +131,24 @@ export const QUERY_ME = gql`
         name
         activityType
         date
+        symptoms {
+          _id
+          symptomType
+          painLevel
+          mood
+        }
       }
       meals {
         _id
         name
         mealType
         date
+        symptoms {
+          _id
+          symptomType
+          painLevel
+          mood
+        }
       }
     }
   }
