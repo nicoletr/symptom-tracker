@@ -2,16 +2,17 @@ import React from "react";
 import { Grid, Container, Box } from "@mui/material";
 
 import { useQuery } from "@apollo/client";
-import { QUERY_MEALS } from "../../utils/queries";
+import { QUERY_ME } from "../../utils/queries";
 
 import MealCard from "../MealCard";
 
 const MealList = () => {
-  const { data } = useQuery(QUERY_MEALS);
+  const { data } = useQuery(QUERY_ME);
 
   let meals = [];
+
   if (data) {
-    meals = data.meals;
+    meals = data.me.meals;
   }
 
   console.log(meals);

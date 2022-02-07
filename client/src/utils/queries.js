@@ -150,6 +150,12 @@ export const QUERY_ME = gql`
           mood
         }
       }
+      symptoms {
+        _id
+        symptomType
+        painLevel
+        mood
+      }
     }
   }
 `;

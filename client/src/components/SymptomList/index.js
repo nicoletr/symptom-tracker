@@ -2,16 +2,17 @@ import React from "react";
 import { Grid, Container, Box } from "@mui/material";
 
 import { useQuery } from "@apollo/client";
-import { QUERY_SYMPTOMS } from "../../utils/queries";
+import { QUERY_ME } from "../../utils/queries";
 
 import SymptomCard from "../SymptomCard";
 
 const SymptomList = () => {
-  const { data } = useQuery(QUERY_SYMPTOMS);
+  const { data } = useQuery(QUERY_ME);
 
   let symptoms = [];
+
   if (data) {
-    symptoms = data.symptoms;
+    symptoms = data.me.symptoms;
   }
 
   console.log(symptoms);

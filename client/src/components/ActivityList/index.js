@@ -2,16 +2,17 @@ import React from "react";
 import { Grid, Container, Box } from "@mui/material";
 
 import { useQuery } from "@apollo/client";
-import { QUERY_ACTIVITIES } from "../../utils/queries";
+import { QUERY_ME } from "../../utils/queries";
 
 import ActivityCard from "../ActivityCard";
 
 const ActivityList = () => {
-  const { data } = useQuery(QUERY_ACTIVITIES);
+  const { data } = useQuery(QUERY_ME);
 
   let activities = [];
+
   if (data) {
-    activities = data.activities;
+    activities = data.me.activities;
   }
 
   console.log(activities);
