@@ -1,4 +1,4 @@
-const db = require("../config/connection");
+const db = require("./connection");
 const { User, Activity, Meal, Symptom } = require("../models");
 
 db.once("open", async () => {
