@@ -18,19 +18,18 @@ const activitySchema = new Schema(
       trim: true,
     },
     duration: {
-      type: Number,
-      min: 0,
-    },
-    intensity: {
       type: String,
     },
+    intensity: {
+      type: Number,
+    },
     date: {
-      type: Date,
+      type: String,
       get: formatDate,
     },
     createdAt: {
       type: Date,
-      default: Date.now(),
+      default: Date.now("MMMM Do YYYY, h:mm a"),
       get: formatDate,
     },
     symptoms: [

@@ -13,7 +13,7 @@ const typeDefs = gql`
     _id: ID
     name: String
     activityType: String
-    duration: Int
+    duration: String
     intensity: String
     date: String
     symptoms: [Symptom]
@@ -32,12 +32,7 @@ const typeDefs = gql`
   type Symptom {
     _id: ID
     symptomType: String
-    rating: Rating
-  }
-
-  type Rating {
-    _id: ID
-    painLevel: Int
+    painLevel: String
     mood: String
   }
 
@@ -63,17 +58,18 @@ const typeDefs = gql`
     addActivity(
       name: String!
       activityType: String!
-      duration: Int!
-      intensity: String!
+      duration: String!
+      intensity: Int!
       date: String!
-    ): Auth
+    ): Activity!
     addMeal(
       name: String!
       mealType: String!
       ingredients: [String]!
       portionSize: String!
       date: String!
-    ): Auth
+    ): Meal!
+    addSymptom(symptomType: String!, painLevel: Int!, mood: String!): Symptom!
     updateUser(username: String, email: String, password: String): User
     updateActivity(_id: ID!): Activity
     updateMeal(_id: ID!): Meal

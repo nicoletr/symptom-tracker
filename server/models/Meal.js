@@ -24,12 +24,12 @@ const mealSchema = new Schema(
       type: String,
     },
     date: {
-      type: Date,
+      type: String,
       get: formatDate,
     },
     createdAt: {
       type: Date,
-      default: Date.now(),
+      default: Date.now("MMMM Do YYYY, h:mm a"),
       get: formatDate,
     },
     symptoms: [

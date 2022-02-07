@@ -5,6 +5,7 @@ import {
   ADD_USER,
   ADD_ACTIVITY,
   ADD_MEAL,
+  ADD_SYMPTOM,
   UPDATE_USER,
   UPDATE_ACTIVITY,
   UPDATE_MEAL,
@@ -44,6 +45,16 @@ export const reducer = (state, action) => {
       return {
         ...state,
         meals: [...state.meals, newMeal],
+      };
+    }
+    case ADD_SYMPTOM: {
+      const newSymptomId = state.symptoms[state.symptoms.length - 1].id + 1;
+
+      const newSymptom = { ...action.payload, id: newSymptomId };
+
+      return {
+        ...state,
+        symptoms: [...state.symptoms, newSymptom],
       };
     }
     case UPDATE_USER: {

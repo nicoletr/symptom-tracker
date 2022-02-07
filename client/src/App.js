@@ -18,12 +18,12 @@ import NoMatch from "./pages/NoMatch";
 import Dashboard from "./pages/Dashboard";
 import Activities from "./pages/Activities";
 import Meals from "./pages/Meals";
-import Symptoms from "./pages/Symptoms ";
+import Symptoms from "./pages/Symptoms";
 import NavBar from "./components/NavBar";
 import Footer from "./components/Footer";
 
 const httpLink = createHttpLink({
-  uri: "/graphql",
+  uri: "http://localhost:3001/graphql",
 });
 
 const authLink = setContext((_, { headers }) => {

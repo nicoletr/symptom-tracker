@@ -28,8 +28,8 @@ export const ADD_ACTIVITY = gql`
   mutation addActivity(
     $name: String!
     $activityType: String!
-    $duration: Int!
-    $intensity: String!
+    $duration: String!
+    $intensity: Int!
     $date: String!
   ) {
     addActivity(
@@ -41,17 +41,10 @@ export const ADD_ACTIVITY = gql`
     ) {
       _id
       name
-      activityAuthor
-      createdAt
-      symptoms {
-        _id
-        symptomType
-        rating {
-          _id
-          painLevel
-          mood
-        }
-      }
+      activityType
+      duration
+      intensity
+      date
     }
   }
 `;
@@ -64,9 +57,9 @@ export const ADD_MEAL = gql`
     $portionSize: String!
     $date: String!
   ) {
-    addActivity(
+    addMeal(
       name: $name
-      activityType: $activityType
+      mealType: $mealType
       ingredients: $ingredients
       portionSize: $portionSize
       date: $date
@@ -75,15 +68,17 @@ export const ADD_MEAL = gql`
       name
       mealAuthor
       createdAt
-      symptoms {
-        _id
-        symptomType
-        rating {
-          _id
-          painLevel
-          mood
-        }
-      }
+    }
+  }
+`;
+
+export const ADD_SYMPTOM = gql`
+  mutation addSymptom($symptomType: String!, $painLevel: Int!, $mood: String!) {
+    addSymptom(symptomType: $symptomType, painLevel: $painLevel, mood: $mood) {
+      _id
+      symptomType
+      painLevel
+      mood
     }
   }
 `;

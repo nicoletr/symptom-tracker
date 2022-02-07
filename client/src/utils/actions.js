@@ -26,6 +26,15 @@ export const ADD_ACTIVITY = "ADD_ACTIVITY";
 export const ADD_MEAL = "ADD_MEAL";
 
 /*
+ * ADD_SYMPTOM:
+ * - takes a symptom object as payload with parameters
+ * - creates new ID for symptom based on previous last symptom
+ * - pushes new symptom to the end of copy of symptoms array
+ * - updates symptoms array
+ */
+export const ADD_SYMPTOM = "ADD_SYMPTOM";
+
+/*
  * UPDATE_USER:
  * - takes object with id and updated values for user parameter(s)
  * - finds user based on ID and updates object
