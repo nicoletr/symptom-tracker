@@ -1,4 +1,4 @@
-import React from "react";
+import { React, useState } from "react";
 import { Link } from "react-router-dom";
 
 import BottomNavigation from "@mui/material/BottomNavigation";
@@ -10,7 +10,7 @@ import FitnessCenterIcon from "@mui/icons-material/FitnessCenter";
 import SickIcon from "@mui/icons-material/Sick";
 
 function BottomNav() {
-  const [value, setValue] = React.useState("recents");
+  const [value, setValue] = useState("home");
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
@@ -29,21 +29,21 @@ function BottomNav() {
             icon={<HomeIcon />}
           />
         </Link>
-        <Link to="/activities">
-          <BottomNavigationAction
-            label="My Meals"
-            value="meals"
-            icon={<RestaurantIcon />}
-          />
-        </Link>
-        <Link to="/activities">
+        <Link to="/activities" onClick={handleChange}>
           <BottomNavigationAction
             label="My Activities"
             value="activities"
             icon={<FitnessCenterIcon />}
           />
         </Link>
-        <Link to="/symptoms">
+        <Link to="/meals" onClick={handleChange}>
+          <BottomNavigationAction
+            label="My Meals"
+            value="meals"
+            icon={<RestaurantIcon />}
+          />
+        </Link>
+        <Link to="/symptoms" onClick={handleChange}>
           <BottomNavigationAction
             label="My Symptoms"
             value="symptoms"

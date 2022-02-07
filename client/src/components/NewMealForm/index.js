@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 // import { useStoreContext } from "../../utils/GlobalState";
 import { useMutation } from "@apollo/client";
-import { ADD_ACTIVITY } from "../../utils/mutations";
-import { QUERY_ACTIVITIES, QUERY_ME } from "../../utils/queries";
+import { ADD_MEAL } from "../../utils/mutations";
+import { QUERY_MEALS, QUERY_ME } from "../../utils/queries";
 import AuthService from "../../utils/auth";
 // import FormDatePicker from "../DatePicker";
 
@@ -43,40 +43,27 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const activityTypes = [
-  "Athletics",
-  "Cycling",
-  "Dancing",
-  "Pilates",
-  "Running",
-  "Skipping",
-  "Swimming",
-  "Team sport",
-  "Tennis",
-  "Walking",
-  "Weights",
-  "Yoga",
-];
+const mealTypes = ["Athletics"];
 
-function NewActivityForm() {
+function NewMealForm() {
   const classes = useStyles();
 
   const [formState, setFormState] = useState({
     name: "",
-    activityType: "",
-    duration: "",
-    intensity: "",
+    mealType: "",
+    ingredients: "",
+    portionSize: "",
     date: "",
   });
 
-  const [addActivity, { error }] = useMutation(ADD_ACTIVITY, {
-    update(cache, { data: { addActivity } }) {
+  const [addMeal, { error }] = useMutation(ADD_MEAL, {
+    update(cache, { data: { addMeal } }) {
       try {
-        const { activities } = cache.readQuery({ query: QUERY_ACTIVITIES });
+        const { meals } = cache.readQuery({ query: QUERY_MEALS });
 
         cache.writeQuery({
-          query: QUERY_ACTIVITIES,
-          data: { activities: [addActivity, ...activities] },
+          query: QUERY_MEALS,
+          data: { meals: [addMeal, ...meals] },
         });
       } catch (e) {
         console.error(e);
@@ -86,7 +73,7 @@ function NewActivityForm() {
       const { me } = cache.readQuery({ query: QUERY_ME });
       cache.writeQuery({
         query: QUERY_ME,
-        data: { me: { ...me, activities: [...me.activities, addActivity] } },
+        data: { me: { ...me, meals: [...me.meals, addMeal] } },
       });
     },
   });
@@ -105,11 +92,11 @@ function NewActivityForm() {
     console.log(formState);
 
     try {
-      const { data } = await addActivity({
+      const { data } = await addMeal({
         variables: { ...formState },
       });
 
-      AuthService.login(data.addActivity.token);
+      AuthService.login(data.addMeal.token);
     } catch (e) {
       console.error(e);
     }
@@ -127,7 +114,7 @@ function NewActivityForm() {
                 required
                 fullWidth
                 id="name"
-                label="Activity Name"
+                label="Meal Name"
                 name="name"
                 autoComplete="name"
                 value={formState.name}
@@ -136,17 +123,17 @@ function NewActivityForm() {
             </Grid>
             <Grid item xs={12}>
               <FormControl fullWidth required>
-                <InputLabel>Activity Type</InputLabel>
+                <InputLabel>Meal Type</InputLabel>
                 <Select
-                  id="activityType"
-                  label="Activity Type"
-                  name="activityType"
-                  value={formState.activityType}
+                  id="mealType"
+                  label="Meal Type"
+                  name="mealType"
+                  value={formState.mealType}
                   onChange={handleChange}
                 >
-                  {activityTypes.map((activityType) => (
-                    <MenuItem key={activityType} value={activityType}>
-                      {activityType}
+                  {mealTypes.map((mealType) => (
+                    <MenuItem key={mealType} value={mealType}>
+                      {mealType}
                     </MenuItem>
                   ))}
                 </Select>
@@ -157,29 +144,27 @@ function NewActivityForm() {
                 variant="outlined"
                 required
                 fullWidth
-                id="duration"
-                label="Duration (minutes)"
-                name="duration"
-                autoComplete="duration"
-                value={formState.duration}
+                id="ingredients"
+                label="Ingredients"
+                name="ingredients"
+                autoComplete="ingredients"
+                value={formState.ingredients}
                 onChange={handleChange}
               />
             </Grid>
             <Grid item xs={12}>
               <FormControl fullWidth required>
-                <InputLabel>Intensity</InputLabel>
+                <InputLabel>portionSize</InputLabel>
                 <Select
-                  id="intensity"
-                  label="Intensity"
-                  name="intensity"
-                  value={formState.intensity}
+                  id="portionSize"
+                  label="Portion Size"
+                  name="portionSize"
+                  value={formState.portionSize}
                   onChange={handleChange}
                 >
-                  <MenuItem value={1}>1</MenuItem>
-                  <MenuItem value={2}>2</MenuItem>
-                  <MenuItem value={3}>3</MenuItem>
-                  <MenuItem value={4}>4</MenuItem>
-                  <MenuItem value={5}>5</MenuItem>
+                  <MenuItem value={"Small"}>Small</MenuItem>
+                  <MenuItem value={"Medium"}>Medium</MenuItem>
+                  <MenuItem value={"Large"}>Large</MenuItem>
                 </Select>
               </FormControl>
             </Grid>
@@ -220,4 +205,4 @@ function NewActivityForm() {
   );
 }
 
-export default NewActivityForm;
+export default NewMealForm;

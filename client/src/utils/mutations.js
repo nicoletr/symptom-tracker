@@ -66,8 +66,10 @@ export const ADD_MEAL = gql`
     ) {
       _id
       name
-      mealAuthor
-      createdAt
+      mealType
+      ingredients
+      portionSize
+      date
     }
   }
 `;

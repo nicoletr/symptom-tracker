@@ -66,7 +66,7 @@ const typeDefs = gql`
     addMeal(
       name: String!
       mealType: String!
-      ingredients: [String]!
+      ingredients: String!
       portionSize: String!
       date: String!
     ): Meal!
