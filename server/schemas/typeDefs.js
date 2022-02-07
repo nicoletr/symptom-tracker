@@ -7,6 +7,7 @@ const typeDefs = gql`
     email: String
     activities: [Activity]
     meals: [Meal]
+    symptoms: [Symptom]
   }
 
   type Activity {

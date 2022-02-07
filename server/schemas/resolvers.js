@@ -6,26 +6,30 @@ const { signToken } = require("../utils/auth");
 const resolvers = {
   Query: {
     users: async () => {
-      return User.find().populate("activities").populate("meals");
+      return User.find()
+        .populate("activities")
+        .populate("meals")
+        .populate("symptoms");
     },
     user: async (parent, { username }) => {
       return User.findOne({ username })
         .populate("activities")
-        .populate("meals");
+        .populate("meals")
+        .populate("symptoms");
     },
     activities: async (parent, { username }) => {
       const params = username ? { username } : {};
       return Activity.find(params).sort({ createdAt: -1 });
     },
     activity: async (parent, { activityId }) => {
-      return Activity.findOne({ _id: activityId });
+      return Activity.findOne({ _id: activityId }).populate("symptoms");
     },
     meals: async (parent, { username }) => {
       const params = username ? { username } : {};
       return Meal.find(params).sort({ createdAt: -1 });
     },
     meal: async (parent, { mealId }) => {
-      return Meal.findOne({ _id: mealId });
+      return Meal.findOne({ _id: mealId }).populate("symptoms");
     },
     symptoms: async (parent, { username }) => {
       const params = username ? { username } : {};
@@ -38,7 +42,8 @@ const resolvers = {
       if (context.user) {
         return User.findOne({ _id: context.user._id })
           .populate("activities")
-          .populate("meals");
+          .populate("meals")
+          .populate("symptoms");
       }
       throw new AuthenticationError("You need to be logged in!");
     },
@@ -52,7 +57,7 @@ const resolvers = {
     },
     addActivity: async (
       parent,
-      { name, activityType, duration, intensity, date, symptoms },
+      { name, activityType, duration, intensity, date },
       context
     ) => {
       if (context.user) {
@@ -62,7 +67,6 @@ const resolvers = {
           duration,
           intensity,
           date,
-          symptoms,
           activityAuthor: context.user.username,
         });
 
@@ -77,7 +81,7 @@ const resolvers = {
     },
     addMeal: async (
       parent,
-      { name, mealType, ingredients, portionSize, date, symptoms },
+      { name, mealType, ingredients, portionSize, date },
       context
     ) => {
       if (context.user) {
@@ -87,8 +91,25 @@ const resolvers = {
           ingredients,
           portionSize,
           date,
-          symptoms,
           activityAuthor: context.user.username,
+        });
+
+        await User.findOneAndUpdate(
+          { _id: context.user._id },
+          { $addToSet: { meals: meal._id } }
+        );
+
+        return meal;
+      }
+      throw new AuthenticationError("You need to be logged in!");
+    },
+    addSymptom: async (parent, { symptomType, painLevel, mood }, context) => {
+      if (context.user) {
+        const meal = await Symptom.create({
+          symptomType,
+          painLevel,
+          mood,
+          symptomAuthor: context.user.username,
         });
 
         await User.findOneAndUpdate(

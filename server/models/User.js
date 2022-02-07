@@ -35,6 +35,12 @@ const userSchema = new Schema({
       ref: "Meal",
     },
   ],
+  symptoms: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: "Symptom",
+    },
+  ],
 });
 
 // set up pre-save middleware to create password

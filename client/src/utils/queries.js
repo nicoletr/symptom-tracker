@@ -34,10 +34,8 @@ export const QUERY_ACTIVITIES = gql`
       symptoms {
         _id
         symptomType
-        rating {
-          painLevel
-          mood
-        }
+        painLevel
+        mood
       }
     }
   }
@@ -55,10 +53,8 @@ export const QUERY_MEALS = gql`
       symptoms {
         _id
         symptomType
-        rating {
-          painLevel
-          mood
-        }
+        painLevel
+        mood
       }
     }
   }
@@ -76,11 +72,8 @@ export const QUERY_SINGLE_ACTIVITY = gql`
       symptoms {
         _id
         symptomType
-        rating {
-          _id
-          painLevel
-          mood
-        }
+        painLevel
+        mood
       }
     }
   }
@@ -98,11 +91,8 @@ export const QUERY_SINGLE_MEAL = gql`
       symptoms {
         _id
         symptomType
-        rating {
-          _id
-          painLevel
-          mood
-        }
+        painLevel
+        mood
       }
     }
   }
@@ -113,7 +103,8 @@ export const QUERY_SYMPTOMS = gql`
     symptoms {
       _id
       symptomType
-      rating
+      painLevel
+      mood
     }
   }
 `;
@@ -123,11 +114,8 @@ export const QUERY_SINGLE_SYMPTOM = gql`
     symptom(symptomId: $symptomId) {
       _id
       symptomType
-      rating {
-        _id
-        painLevel
-        mood
-      }
+      painLevel
+      mood
     }
   }
 `;
