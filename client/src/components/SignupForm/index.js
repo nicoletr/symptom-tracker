@@ -37,6 +37,9 @@ const useStyles = makeStyles((theme) => ({
   submit: {
     margin: theme.spacing(3, 0, 2),
   },
+  error: {
+    alignItems: "center",
+  },
 }));
 
 const SignupForm = () => {
@@ -85,7 +88,7 @@ const SignupForm = () => {
         </Typography>
         <Box component="form" onSubmit={handleFormSubmit} noValidate>
           <Grid container spacing={2}>
-            <Grid item xs={12} sm={6}>
+            <Grid item xs={12}>
               <TextField
                 variant="outlined"
                 required
