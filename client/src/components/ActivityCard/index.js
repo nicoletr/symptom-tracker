@@ -72,7 +72,7 @@ function ActivityCard(props) {
               </Button>
             </DialogContent>
           </Dialog>
-          <Button size="small">Details</Button>
+          <Button variant="outlined">Details</Button>
         </CardActions>
       </Card>
     </Box>

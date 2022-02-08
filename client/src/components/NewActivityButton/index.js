@@ -48,7 +48,7 @@ function NewActivityButton() {
             className={classes.close}
             onClick={handleClose}
           >
-            Cancel
+            Close
           </Button>
         </DialogContent>
       </Dialog>

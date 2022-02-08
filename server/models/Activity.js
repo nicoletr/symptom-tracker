@@ -24,7 +24,6 @@ const activitySchema = new Schema(
     },
     date: {
       type: String,
-      get: formatDate,
     },
     createdAt: {
       type: Date,

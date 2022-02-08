@@ -37,6 +37,11 @@ const Dashboard = () => {
       </Box>
       <NewActivityButton />
       <NewMealButton />
+      <Box sx={{ pb: 5 }}>
+        <Typography variant="body1">
+          Want to see your data displayed in graphs? Sign up for premium today!
+        </Typography>
+      </Box>
       <BottomNav />
     </Container>
   );

@@ -9,21 +9,21 @@ db.once("open", async () => {
       activityType: "Running",
       duration: 30,
       intensity: "5",
-      date: 1643808600000,
+      date: "Mon Jan 31 2022 06:00:00 GMT+0800 (Australian Western Standard Time)",
     },
     {
       name: "Commute to work",
       activityType: "Cycling",
       duration: 45,
       intensity: "8",
-      date: 1644051600000,
+      date: "Tue Feb 01 2022 08:30:00 GMT+0800 (Australian Western Standard Time)",
     },
     {
       name: "Sunday beachwalk",
       activityType: "Walking",
       duration: 90,
       intensity: "2",
-      date: 1642531500000,
+      date: "Sun Feb 06 2022 19:15:00 GMT+0800 (Australian Western Standard Time)",
     },
   ]);
 
@@ -37,7 +37,7 @@ db.once("open", async () => {
       ingredients:
         "Red meat, onion, garlic, pasta, tomato sauce, bechamel sauce, herbs",
       portionSize: "Large",
-      date: 1643808600000,
+      date: "Sun Feb 06 2022 20:00:00 GMT+0800 (Australian Western Standard Time)",
     },
     {
       name: "Breakfast smoothie",
@@ -45,14 +45,14 @@ db.once("open", async () => {
       ingredients:
         "Banana, berries, soy milk, peanut butter, oats, protein powder, water",
       portionSize: "Medium",
-      date: 1644051600000,
+      date: "Tue Feb 01 2022 07:30:00 GMT+0800 (Australian Western Standard Time)",
     },
     {
       name: "Snack",
       mealType: "Potato Crisps",
       ingredients: "Potato, oil, salt",
       portionSize: "Medium",
-      date: 1642531500000,
+      date: "Sat Feb 05 2022 10:30:00 GMT+0800 (Australian Western Standard Time)",
     },
   ]);
 

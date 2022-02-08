@@ -4,6 +4,9 @@ import { useMutation } from "@apollo/client";
 import { ADD_ACTIVITY } from "../../utils/mutations";
 import { QUERY_ACTIVITIES, QUERY_ME } from "../../utils/queries";
 // import FormDatePicker from "../DatePicker";
+import AdapterDateFns from "@mui/lab/AdapterDateFns";
+import LocalizationProvider from "@mui/lab/LocalizationProvider";
+import DateTimePicker from "@mui/lab/DateTimePicker";
 
 import Button from "@mui/material/Button";
 import Container from "@mui/material/Container";
@@ -60,12 +63,14 @@ const activityTypes = [
 function NewActivityForm({ userId }) {
   const classes = useStyles();
 
+  const [dateValue, setDateValue] = useState(new Date().toString());
+
   const [formState, setFormState] = useState({
     name: "",
     activityType: "",
     duration: "",
     intensity: "",
-    date: "",
+    date: dateValue,
   });
 
   const [addActivity, { error }] = useMutation(ADD_ACTIVITY, {
@@ -94,6 +99,10 @@ function NewActivityForm({ userId }) {
     },
   });
 
+  const handleDateChange = (newValue) => {
+    setDateValue(newValue);
+  };
+
   const handleChange = (event) => {
     const { name, value } = event.target;
 
@@ -106,10 +115,10 @@ function NewActivityForm({ userId }) {
   const handleFormSubmit = async (event) => {
     event.preventDefault();
     console.log(formState);
-
+    console.log(dateValue);
     try {
       const { data } = await addActivity({
-        variables: { ...formState },
+        variables: { ...formState, dateValue },
       });
     } catch (e) {
       console.error(e);
@@ -185,17 +194,16 @@ function NewActivityForm({ userId }) {
               </FormControl>
             </Grid>
             <Grid item xs={12}>
-              <TextField
-                variant="outlined"
-                required
-                fullWidth
-                id="date"
-                label="Date"
-                name="date"
-                autoComplete="date"
-                value={formState.date}
-                onChange={handleChange}
-              />
+              <LocalizationProvider dateAdapter={AdapterDateFns}>
+                <DateTimePicker
+                  disableFuture
+                  label="Date / Time"
+                  openTo="day"
+                  value={formState.date}
+                  onChange={handleDateChange}
+                  renderInput={(params) => <TextField {...params} />}
+                />
+              </LocalizationProvider>
             </Grid>
           </Grid>
           <Button

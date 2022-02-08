@@ -5,6 +5,10 @@ import { ADD_MEAL } from "../../utils/mutations";
 import { QUERY_MEALS, QUERY_ME } from "../../utils/queries";
 // import FormDatePicker from "../DatePicker";
 
+import AdapterDateFns from "@mui/lab/AdapterDateFns";
+import LocalizationProvider from "@mui/lab/LocalizationProvider";
+import DateTimePicker from "@mui/lab/DateTimePicker";
+
 import Button from "@mui/material/Button";
 import Container from "@mui/material/Container";
 import TextField from "@mui/material/TextField";
@@ -47,12 +51,14 @@ const mealTypes = ["Athletics"];
 function NewMealForm({ userId }) {
   const classes = useStyles();
 
+  const [dateValue, setDateValue] = useState(new Date().toString());
+
   const [formState, setFormState] = useState({
     name: "",
     mealType: "",
     ingredients: "",
     portionSize: "",
-    date: "",
+    date: dateValue,
   });
 
   const [addMeal, { error }] = useMutation(ADD_MEAL, {
@@ -77,6 +83,10 @@ function NewMealForm({ userId }) {
     },
   });
 
+  const handleDateChange = (newValue) => {
+    setDateValue(newValue);
+  };
+
   const handleChange = (event) => {
     const { name, value } = event.target;
 
@@ -89,10 +99,11 @@ function NewMealForm({ userId }) {
   const handleFormSubmit = async (event) => {
     event.preventDefault();
     console.log(formState);
+    console.log(dateValue);
 
     try {
       const { data } = await addMeal({
-        variables: { ...formState },
+        variables: { ...formState, dateValue },
       });
     } catch (e) {
       console.error(e);
@@ -166,17 +177,16 @@ function NewMealForm({ userId }) {
               </FormControl>
             </Grid>
             <Grid item xs={12}>
-              <TextField
-                variant="outlined"
-                required
-                fullWidth
-                id="date"
-                label="Date"
-                name="date"
-                autoComplete="date"
-                value={formState.date}
-                onChange={handleChange}
-              />
+              <LocalizationProvider dateAdapter={AdapterDateFns}>
+                <DateTimePicker
+                  disableFuture
+                  label="Date / Time"
+                  openTo="day"
+                  value={formState.date}
+                  onChange={handleDateChange}
+                  renderInput={(params) => <TextField {...params} />}
+                />
+              </LocalizationProvider>
             </Grid>
           </Grid>
           <Button

@@ -1,7 +1,11 @@
 import React, { useState } from "react";
 import { useMutation } from "@apollo/client";
 import { ADD_SYMPTOM } from "../../utils/mutations";
-import { QUERY_SYMPTOMS, QUERY_ME } from "../../utils/queries";
+import {
+  QUERY_SYMPTOMS,
+  QUERY_ME,
+  QUERY_ACTIVITIES,
+} from "../../utils/queries";
 
 import { makeStyles } from "@material-ui/core/styles";
 import ListItemIcon from "@mui/material/ListItemIcon";
@@ -57,7 +61,7 @@ const symptoms = [
   "Constipation",
 ];
 
-function NewSymptomForm({ userId }) {
+function NewSymptomForm({ userId, activityId, mealId }) {
   const classes = useStyles();
 
   const [formState, setFormState] = useState({
