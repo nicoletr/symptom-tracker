@@ -1,11 +1,7 @@
 import React, { useState } from "react";
 import { useMutation } from "@apollo/client";
 import { ADD_SYMPTOM } from "../../utils/mutations";
-import {
-  QUERY_SYMPTOMS,
-  QUERY_ME,
-  QUERY_ACTIVITIES,
-} from "../../utils/queries";
+import { QUERY_SYMPTOMS, QUERY_ME } from "../../utils/queries";
 
 import { makeStyles } from "@material-ui/core/styles";
 import ListItemIcon from "@mui/material/ListItemIcon";
@@ -114,6 +110,7 @@ function NewSymptomForm({ userId, activityId, mealId }) {
       const { data } = await addSymptom({
         variables: { ...formState },
       });
+      console.log(data);
     } catch (e) {
       console.error(e);
     }

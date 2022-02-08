@@ -116,10 +116,12 @@ function NewActivityForm({ userId }) {
     event.preventDefault();
     console.log(formState);
     console.log(dateValue);
+
     try {
       const { data } = await addActivity({
         variables: { ...formState, dateValue },
       });
+      console.log(data);
     } catch (e) {
       console.error(e);
     }

@@ -105,6 +105,7 @@ function NewMealForm({ userId }) {
       const { data } = await addMeal({
         variables: { ...formState, dateValue },
       });
+      console.log(data);
     } catch (e) {
       console.error(e);
     }
