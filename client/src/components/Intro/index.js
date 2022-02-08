@@ -25,9 +25,20 @@ const Intro = () => {
       </Card>
       <Card sx={{ flexGrow: 1, minHeight: "5rem" }}>
         <CardContent>
-          <Link to="/signup">
-            <Button variant="outlined">Sign up today!</Button>
-          </Link>
+          <Grid container justifyContent="center">
+            <Grid item>
+              <Link to="/signup">
+                <Button variant="outlined">Sign up today!</Button>
+              </Link>
+            </Grid>
+          </Grid>
+          <Grid container justifyContent="center">
+            <Grid item>
+              <Link to="/login" variant="body2">
+                Already have an account? Sign in
+              </Link>
+            </Grid>
+          </Grid>
         </CardContent>
       </Card>
     </Grid>

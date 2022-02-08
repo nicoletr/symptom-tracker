@@ -58,7 +58,7 @@ function Navbar() {
               Home
             </Link>
             {isLoggedIn ? (
-              <Link to="/logout" className={classes.link} onClick={logout}>
+              <Link to="/" className={classes.link} onClick={logout}>
                 Logout
               </Link>
             ) : (
