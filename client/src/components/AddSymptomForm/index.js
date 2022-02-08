@@ -69,7 +69,12 @@ function NewSymptomForm({ userId }) {
   const [addSymptom, { error }] = useMutation(ADD_SYMPTOM, {
     update(cache, { data: { addSymptom } }) {
       try {
-        const { symptoms } = cache.readQuery({ query: QUERY_SYMPTOMS });
+        const { symptoms } = cache.readQuery({
+          query: QUERY_SYMPTOMS,
+          variables: {
+            ...formState,
+          },
+        });
 
         cache.writeQuery({
           query: QUERY_SYMPTOMS,

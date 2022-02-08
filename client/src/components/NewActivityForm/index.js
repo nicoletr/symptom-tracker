@@ -71,7 +71,9 @@ function NewActivityForm({ userId }) {
   const [addActivity, { error }] = useMutation(ADD_ACTIVITY, {
     update(cache, { data: { addActivity } }) {
       try {
-        const { activities } = cache.readQuery({ query: QUERY_ACTIVITIES });
+        const { activities } = cache.readQuery({
+          query: QUERY_ACTIVITIES,
+        });
 
         cache.writeQuery({
           query: QUERY_ACTIVITIES,
@@ -82,7 +84,9 @@ function NewActivityForm({ userId }) {
       }
 
       // update me object's cache
-      const { me } = cache.readQuery({ query: QUERY_ME });
+      const { me } = cache.readQuery({
+        query: QUERY_ME,
+      });
       cache.writeQuery({
         query: QUERY_ME,
         data: { me: { ...me, activities: [...me.activities, addActivity] } },

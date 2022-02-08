@@ -51,9 +51,6 @@ function ActivityCard(props) {
           <Typography sx={{ mb: 1.5 }} color="text.secondary">
             {props.activity.date}
           </Typography>
-          <Typography variant="body2">
-            {props.activity.symptoms.symptomType}
-          </Typography>
         </CardContent>
         <CardActions>
           <Button variant="outlined" onClick={handleOpen}>
