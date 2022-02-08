@@ -46,7 +46,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const mealTypes = ["Athletics"];
+const mealTypes = ["Main meal", "Dessert", "Snack", "Hot drink", "Cold drink"];
 
 function NewMealForm({ userId }) {
   const classes = useStyles();
@@ -198,7 +198,7 @@ function NewMealForm({ userId }) {
             className={classes.submit}
             onClick={handleFormSubmit}
           >
-            Create
+            Save
           </Button>
           {error ? (
             <div>

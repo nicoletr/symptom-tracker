@@ -216,7 +216,7 @@ function NewActivityForm({ userId }) {
             className={classes.submit}
             onClick={handleFormSubmit}
           >
-            Create
+            Save
           </Button>
           {error ? (
             <div>
