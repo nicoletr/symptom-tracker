@@ -66,9 +66,6 @@ function Navbar() {
                 Login
               </Link>
             )}
-            <Link to="/contact" className={classes.link}>
-              Contact Us
-            </Link>
           </div>
         )}
       </Toolbar>
