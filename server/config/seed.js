@@ -100,7 +100,7 @@ db.once("open", async () => {
   console.log("symptoms seeded", symptoms);
 
   await User.deleteMany();
-  const users = await User.insertMany([
+  await User.create([
     {
       username: "sdacke0",
       email: "ehammill0@springer.com",
@@ -109,41 +109,20 @@ db.once("open", async () => {
       meals: [meals[0]._id],
       symptoms: [symptoms[2]._id, symptoms[5]._id, symptoms[0]._id],
     },
+  ]);
+
+  await User.create([
     {
-      username: "udoni1",
-      email: "vyeldham1@hud.gov",
-      password: "2w2GwB1B",
+      username: "nicoletr",
+      email: "nicole@email.com",
+      password: "password",
       activities: [activities[2]._id],
       meals: [meals[0]._id, meals[2]._id],
       symptoms: [symptoms[0]._id],
     },
-    {
-      username: "tamsden2",
-      email: "ogeach2@discuz.net",
-      password: "oPNur06",
-      activities: [activities[1]._id],
-      meals: [],
-      symptoms: [symptoms[3]._id, symptoms[6]._id],
-    },
-    {
-      username: "omaccathay3",
-      email: "ghasley3@odnoklassniki.ru",
-      password: "ZNDXPe9",
-      activities: [],
-      meals: [meals[1]._id, meals[2]._id],
-      symptoms: [symptoms[3]._id],
-    },
-    {
-      username: "lkimblen4",
-      email: "bcostin4@omniture.com",
-      password: "m0jMxqhg6k",
-      activities: [activities[2]._id],
-      meals: [meals[1]._id, meals[2]._id],
-      symptoms: [symptoms[3]._id],
-    },
   ]);
 
-  console.log("users seeded", users);
+  console.log("users seeded");
 
   process.exit();
 });

@@ -17,6 +17,7 @@ const typeDefs = gql`
     duration: String
     intensity: String
     date: String
+    createdAt: String
     symptoms: [Symptom]
   }
 
@@ -27,6 +28,7 @@ const typeDefs = gql`
     ingredients: [String]
     portionSize: String
     date: String
+    createdAt: String
     symptoms: [Symptom]
   }
 
@@ -38,7 +40,7 @@ const typeDefs = gql`
   }
 
   type Auth {
-    token: ID
+    token: ID!
     user: User
   }
 

@@ -11,12 +11,14 @@ export const QUERY_USER = gql`
         name
         activityType
         date
+        createdAt
       }
       meals {
         _id
         name
         mealType
         date
+        createdAt
       }
     }
   }

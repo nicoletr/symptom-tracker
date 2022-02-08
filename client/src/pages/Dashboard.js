@@ -23,7 +23,7 @@ const Dashboard = () => {
     AuthService.loggedIn() &&
     AuthService.getProfile().data._id === userParam
   ) {
-    return <Link to="/activities" />;
+    return <Link to="/" />;
   }
 
   if (!user?._id) {

@@ -3,7 +3,6 @@ import React, { useState } from "react";
 import { useMutation } from "@apollo/client";
 import { ADD_MEAL } from "../../utils/mutations";
 import { QUERY_MEALS, QUERY_ME } from "../../utils/queries";
-import AuthService from "../../utils/auth";
 // import FormDatePicker from "../DatePicker";
 
 import Button from "@mui/material/Button";
@@ -45,7 +44,7 @@ const useStyles = makeStyles((theme) => ({
 
 const mealTypes = ["Athletics"];
 
-function NewMealForm() {
+function NewMealForm({ userId }) {
   const classes = useStyles();
 
   const [formState, setFormState] = useState({
@@ -95,8 +94,6 @@ function NewMealForm() {
       const { data } = await addMeal({
         variables: { ...formState },
       });
-
-      AuthService.login(data.addMeal.token);
     } catch (e) {
       console.error(e);
     }

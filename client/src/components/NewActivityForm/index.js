@@ -3,7 +3,6 @@ import React, { useState } from "react";
 import { useMutation } from "@apollo/client";
 import { ADD_ACTIVITY } from "../../utils/mutations";
 import { QUERY_ACTIVITIES, QUERY_ME } from "../../utils/queries";
-import AuthService from "../../utils/auth";
 // import FormDatePicker from "../DatePicker";
 
 import Button from "@mui/material/Button";
@@ -58,7 +57,7 @@ const activityTypes = [
   "Yoga",
 ];
 
-function NewActivityForm() {
+function NewActivityForm({ userId }) {
   const classes = useStyles();
 
   const [formState, setFormState] = useState({
@@ -108,8 +107,6 @@ function NewActivityForm() {
       const { data } = await addActivity({
         variables: { ...formState },
       });
-
-      AuthService.login(data.addActivity.token);
     } catch (e) {
       console.error(e);
     }
@@ -119,7 +116,7 @@ function NewActivityForm() {
     <Container component="main" maxWidth="xs">
       <CssBaseline />
       <div className={classes.paper}>
-        <Box component="form" onSubmit={handleFormSubmit} noValidate>
+        <Box component="form" noValidate>
           <Grid container spacing={2}>
             <Grid item xs={12} sm={6}>
               <TextField
