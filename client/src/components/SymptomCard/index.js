@@ -15,14 +15,14 @@ function SymptomCard(props) {
     <Box sx={{ minWidth: 275 }}>
       <Card variant="outlined">
         <CardContent>
-          <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
-            {props.symptom.symptomType}
+          <Typography variant="h5" gutterBottom>
+            Symptom: {props.symptom.symptomType}
           </Typography>
-          <Typography variant="h5" component="div">
-            {props.symptom.painLevel}
+          <Typography variant="h6" component="div" gutterBottom>
+            Pain Level: {props.symptom.painLevel}
           </Typography>
           <Typography sx={{ mb: 1.5 }} color="text.secondary">
-            {props.symptom.mood}
+            Mood: {props.symptom.mood}
           </Typography>
         </CardContent>
         <CardActions>

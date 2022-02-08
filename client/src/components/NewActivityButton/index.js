@@ -39,7 +39,7 @@ function NewActivityButton() {
       <Dialog open={open} onClose={handleClose}>
         <DialogTitle>My New Activity</DialogTitle>
         <DialogContent>
-          <NewActivityForm />
+          <NewActivityForm onSubmit={handleClose} />
           <Button
             type="close"
             fullWidth
