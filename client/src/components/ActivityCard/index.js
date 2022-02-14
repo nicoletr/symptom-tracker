@@ -1,5 +1,5 @@
 import { React, useState } from "react";
-
+import { Link } from "react-router-dom";
 import AddSymptomForm from "../AddSymptomForm";
 
 import {
@@ -71,7 +71,9 @@ function ActivityCard(props) {
               </Button>
             </DialogContent>
           </Dialog>
-          <Button variant="outlined">Details</Button>
+          <Link to={`/activities/${props.activity._id}`}>
+            <Button variant="outlined">Details</Button>
+          </Link>
         </CardActions>
       </Card>
     </Box>

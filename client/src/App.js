@@ -19,6 +19,9 @@ import Dashboard from "./pages/Dashboard";
 import Activities from "./pages/Activities";
 import Meals from "./pages/Meals";
 import Symptoms from "./pages/Symptoms";
+import ActivityDetails from "./pages/ActivityDetails";
+import MealDetails from "./pages/MealDetails";
+import SymptomDetails from "./pages/SymptomDetails";
 import NavBar from "./components/NavBar";
 import Footer from "./components/Footer";
 
@@ -62,6 +65,17 @@ function App() {
               <Route exact path="/activities" element={<Activities />} />
               <Route exact path="/meals" element={<Meals />} />
               <Route exact path="/symptoms" element={<Symptoms />} />
+              <Route
+                exact
+                path="/activities/:activityId"
+                element={<ActivityDetails />}
+              />
+              <Route exact path="/meals/:mealId" element={<MealDetails />} />
+              <Route
+                exact
+                path="/symptoms/:symptomId"
+                element={<SymptomDetails />}
+              />
               <Route element={<NoMatch />} />
             </Routes>
             <Footer />

@@ -13,7 +13,7 @@ import {
 function ActivityDetails(props) {
   return (
     <Box sx={{ minWidth: 275 }}>
-      <Card variant="outlined">
+      <Card key={props.activity._id} variant="outlined">
         <CardContent>
           <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
             {props.activity.name}
