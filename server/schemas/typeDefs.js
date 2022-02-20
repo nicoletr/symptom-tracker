@@ -37,6 +37,8 @@ const typeDefs = gql`
     symptomType: String
     painLevel: String
     mood: String
+    activities: [Activity]
+    meals: [Meal]
   }
 
   type Auth {

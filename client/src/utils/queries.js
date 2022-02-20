@@ -118,6 +118,16 @@ export const QUERY_SINGLE_SYMPTOM = gql`
       symptomType
       painLevel
       mood
+      activities {
+        _id
+        name
+        activityType
+      }
+      meals {
+        _id
+        name
+        mealType
+      }
     }
   }
 `;
@@ -157,6 +167,16 @@ export const QUERY_ME = gql`
         symptomType
         painLevel
         mood
+        activities {
+          _id
+          name
+          activityType
+        }
+        meals {
+          _id
+          name
+          mealType
+        }
       }
     }
   }

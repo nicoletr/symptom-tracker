@@ -19,6 +19,18 @@ const symptomSchema = new Schema({
     type: String,
     required: true,
   },
+  activities: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: "Activity",
+    },
+  ],
+  meals: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: "Meal",
+    },
+  ],
 });
 
 const Symptom = mongoose.model("Symptom", symptomSchema);

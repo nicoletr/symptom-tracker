@@ -36,7 +36,9 @@ const resolvers = {
       return Symptom.find(params).sort({ createdAt: -1 });
     },
     symptom: async (parent, { symptomId }) => {
-      return Symptom.findOne({ _id: symptomId });
+      return Symptom.findOne({ _id: symptomId })
+        .populate("activities")
+        .populate("meals");
     },
     me: async (parent, args, context) => {
       if (context.user) {
