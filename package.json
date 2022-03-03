@@ -23,5 +23,8 @@
   "homepage": "https://github.com/nicoletr/symptom-tracker#readme",
   "devDependencies": {
     "concurrently": "^7.0.0"
+  },
+  "dependencies": {
+    "idb": "^7.0.0"
   }
 }
