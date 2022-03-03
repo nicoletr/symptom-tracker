@@ -8,6 +8,7 @@ const { CacheableResponsePlugin } = require("workbox-cacheable-response");
 const { precacheAndRoute } = require("workbox-precaching/precacheAndRoute");
 
 // The precacheAndRoute() method takes an array of URLs to precache. The self._WB_MANIFEST is an array that contains the list of URLs to precache.
+// eslint-disable-next-line no-restricted-globals
 precacheAndRoute(self.__WB_MANIFEST);
 
 // Set up asset cache

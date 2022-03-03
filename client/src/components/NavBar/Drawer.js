@@ -14,8 +14,11 @@ import AuthService from "../../utils/auth";
 const useStyles = makeStyles(() => ({
   link: {
     textDecoration: "none",
-    color: "blue",
+    color: "#51addc",
     fontSize: "20px",
+    "&:hover": {
+      fontWeight: "bold",
+    },
   },
   icon: {
     color: "white",

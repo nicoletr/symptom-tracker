@@ -13,9 +13,12 @@ import DrawerComponent from "./Drawer";
 import AuthService from "../../utils/auth";
 
 const useStyles = makeStyles((theme) => ({
+  main: {
+    backgroundColor: "#51addc",
+  },
   navlinks: {
     marginLeft: theme.spacing(5),
-    display: "flex",
+    display: "flex-end",
   },
   logo: {
     flexGrow: "1",
@@ -25,10 +28,9 @@ const useStyles = makeStyles((theme) => ({
     textDecoration: "none",
     color: "white",
     fontSize: "20px",
-    marginLeft: theme.spacing(20),
+    marginLeft: theme.spacing(5),
     "&:hover": {
-      color: "yellow",
-      borderBottom: "1px solid white",
+      fontWeight: "bold",
     },
   },
 }));
@@ -46,7 +48,7 @@ function Navbar() {
   return (
     <AppBar position="static">
       <CssBaseline />
-      <Toolbar>
+      <Toolbar className={classes.main}>
         <Typography variant="h4" className={classes.logo}>
           Symptom Tracker
         </Typography>
