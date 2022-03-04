@@ -18,10 +18,15 @@ const theme = createTheme({
     MuiButton: {
       variants: [
         {
-          props: { varient: "primary" },
+          props: { variant: "primary" },
           style: {
             backgroundColor: "#51addc",
+            "&:hover": {
+              backgroundColor: "#0070a8",
+            },
             border: "none",
+            color: "white",
+            marginTop: "0.5rem",
           },
         },
       ],

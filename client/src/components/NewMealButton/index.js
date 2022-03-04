@@ -33,7 +33,7 @@ function NewMealButton() {
 
   return (
     <Container>
-      <Button variant="outlined" onClick={handleOpen}>
+      <Button variant="primary" onClick={handleOpen}>
         New Meal
       </Button>
       <Dialog open={open} onClose={handleClose}>

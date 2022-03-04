@@ -28,7 +28,7 @@ const Intro = () => {
           <Grid container justifyContent="center">
             <Grid item>
               <Link to="/signup">
-                <Button variant="outlined">Sign up today!</Button>
+                <Button variant="primary">Sign up today!</Button>
               </Link>
             </Grid>
           </Grid>

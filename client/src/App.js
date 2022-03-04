@@ -12,6 +12,7 @@ import { StoreProvider } from "./utils/GlobalState";
 import AuthService from "./utils/auth";
 import { ThemeProvider } from "@mui/material/styles";
 import theme from "./styles/Theme";
+import Grid from "@mui/material/Grid";
 
 import Home from "./pages/Home";
 import Login from "./pages/Login";
@@ -54,7 +55,7 @@ function App() {
       <CssBaseline />
       <ApolloProvider client={client}>
         <Router>
-          <div>
+          <Grid>
             <StoreProvider>
               <NavBar />
               <Routes>
@@ -83,7 +84,7 @@ function App() {
               </Routes>
               <Footer />
             </StoreProvider>
-          </div>
+          </Grid>
         </Router>
       </ApolloProvider>
     </ThemeProvider>

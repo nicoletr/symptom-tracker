@@ -1,7 +1,7 @@
 import React from "react";
 import { Link, useParams } from "react-router-dom";
 
-import { Container, Box, Typography } from "@mui/material";
+import { Grid, Box, Typography } from "@mui/material";
 import BottomNav from "../components/BottomNavBar";
 import NewActivityButton from "../components/NewActivityButton";
 import NewMealButton from "../components/NewMealButton";
@@ -31,19 +31,34 @@ const Dashboard = () => {
   }
 
   return (
-    <Container maxWidth="xl">
-      <Box sx={{ pb: 5 }}>
-        <Typography variant="h4">Welcome back!</Typography>
-      </Box>
-      <NewActivityButton />
-      <NewMealButton />
-      <Box sx={{ pb: 5 }}>
-        <Typography variant="body1">
-          Upgrade to Premium today to unlock more features!
-        </Typography>
-      </Box>
+    <Grid
+      container
+      maxWidth="xl"
+      direction="column"
+      alignItems="center"
+      justify="center"
+      style={{ minHeight: "100vh" }}
+    >
+      <Grid item>
+        <Box sx={{ pb: 5 }}>
+          <Typography variant="h4">Welcome back!</Typography>
+        </Box>
+      </Grid>
+      <Grid item>
+        <NewActivityButton />
+      </Grid>
+      <Grid item>
+        <NewMealButton />
+      </Grid>
+      <Grid item>
+        <Box sx={{ pb: 5 }}>
+          <Typography variant="body1">
+            Upgrade to Premium today to unlock more features!
+          </Typography>
+        </Box>
+      </Grid>
       <BottomNav />
-    </Container>
+    </Grid>
   );
 };
 

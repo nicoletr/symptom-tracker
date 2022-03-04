@@ -33,7 +33,7 @@ function NewActivityButton() {
 
   return (
     <Container>
-      <Button variant="outlined" onClick={handleOpen}>
+      <Button variant="primary" onClick={handleOpen}>
         New Activity
       </Button>
       <Dialog open={open} onClose={handleClose}>
