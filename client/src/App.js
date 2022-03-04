@@ -10,6 +10,8 @@ import CssBaseline from "@mui/material/CssBaseline";
 import { setContext } from "@apollo/client/link/context";
 import { StoreProvider } from "./utils/GlobalState";
 import AuthService from "./utils/auth";
+import { ThemeProvider } from "@mui/material/styles";
+import theme from "./styles/Theme";
 
 import Home from "./pages/Home";
 import Login from "./pages/Login";
@@ -48,41 +50,43 @@ function App() {
   const isLoggedIn = AuthService.loggedIn();
 
   return (
-    <ApolloProvider client={client}>
-      <Router>
-        <div>
-          <StoreProvider>
-            <NavBar />
-            <CssBaseline />
-            <Routes>
-              {isLoggedIn ? (
-                <Route exact path="/" element={<Dashboard />} />
-              ) : (
-                <Route exact path="/" element={<Home />} />
-              )}
-              <Route exact path="/login" element={<Login />} />
-              <Route exact path="/signup" element={<Signup />} />
-              <Route exact path="/activities" element={<Activities />} />
-              <Route exact path="/meals" element={<Meals />} />
-              <Route exact path="/symptoms" element={<Symptoms />} />
-              <Route
-                exact
-                path="/activities/:activityId"
-                element={<ActivityDetails />}
-              />
-              <Route exact path="/meals/:mealId" element={<MealDetails />} />
-              <Route
-                exact
-                path="/symptoms/:symptomId"
-                element={<SymptomDetails />}
-              />
-              <Route element={<NoMatch />} />
-            </Routes>
-            <Footer />
-          </StoreProvider>
-        </div>
-      </Router>
-    </ApolloProvider>
+    <ThemeProvider theme={theme}>
+      <CssBaseline />
+      <ApolloProvider client={client}>
+        <Router>
+          <div>
+            <StoreProvider>
+              <NavBar />
+              <Routes>
+                {isLoggedIn ? (
+                  <Route exact path="/" element={<Dashboard />} />
+                ) : (
+                  <Route exact path="/" element={<Home />} />
+                )}
+                <Route exact path="/login" element={<Login />} />
+                <Route exact path="/signup" element={<Signup />} />
+                <Route exact path="/activities" element={<Activities />} />
+                <Route exact path="/meals" element={<Meals />} />
+                <Route exact path="/symptoms" element={<Symptoms />} />
+                <Route
+                  exact
+                  path="/activities/:activityId"
+                  element={<ActivityDetails />}
+                />
+                <Route exact path="/meals/:mealId" element={<MealDetails />} />
+                <Route
+                  exact
+                  path="/symptoms/:symptomId"
+                  element={<SymptomDetails />}
+                />
+                <Route element={<NoMatch />} />
+              </Routes>
+              <Footer />
+            </StoreProvider>
+          </div>
+        </Router>
+      </ApolloProvider>
+    </ThemeProvider>
   );
 }
 
