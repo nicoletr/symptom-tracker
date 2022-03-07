@@ -1,10 +1,7 @@
 import React from "react";
-import Grid from "@mui/material/Grid";
-import Card from "@mui/material/Card";
-import CardContent from "@mui/material/CardContent";
-import { Typography } from "@material-ui/core";
-import Button from "@mui/material/Button";
 import { Link } from "react-router-dom";
+
+import { Grid, Card, CardContent, Typography, Button } from "@mui/material";
 import "@fontsource/roboto/300.css";
 import "@fontsource/roboto/400.css";
 import "@fontsource/roboto/500.css";

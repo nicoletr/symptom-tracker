@@ -1,14 +1,16 @@
 import React from "react";
+import { Link } from "react-router-dom";
+
 import {
   AppBar,
   Toolbar,
   CssBaseline,
   Typography,
-  makeStyles,
   useTheme,
   useMediaQuery,
-} from "@material-ui/core";
-import { Link } from "react-router-dom";
+} from "@mui/material";
+import { makeStyles } from "@mui/styles";
+
 import DrawerComponent from "./Drawer";
 import AuthService from "../../utils/auth";
 

@@ -1,19 +1,22 @@
-import React, { useState } from "react";
+import { React, useState } from "react";
 import { Link } from "react-router-dom";
 import { useMutation } from "@apollo/client";
 import { LOGIN_USER } from "../../utils/mutations";
 import AuthService from "../../utils/auth";
 
-import { makeStyles } from "@material-ui/core/styles";
-import Avatar from "@material-ui/core/Avatar";
-import Button from "@material-ui/core/Button";
-import CssBaseline from "@material-ui/core/CssBaseline";
-import TextField from "@material-ui/core/TextField";
-import Grid from "@material-ui/core/Grid";
-import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
-import Typography from "@material-ui/core/Typography";
-import Box from "@mui/material/Box";
-import Container from "@material-ui/core/Container";
+import { makeStyles } from "@mui/styles";
+import {
+  Avatar,
+  Button,
+  CssBaseline,
+  TextField,
+  Grid,
+  Typography,
+  Container,
+  Box,
+} from "@mui/material";
+
+import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -27,7 +30,7 @@ const useStyles = makeStyles((theme) => ({
   },
   avatar: {
     margin: theme.spacing(1),
-    backgroundColor: theme.palette.secondary.main,
+    backgroundColor: "#0070a8",
   },
   form: {
     width: "100%", // Fix IE 11 issue.
@@ -35,6 +38,11 @@ const useStyles = makeStyles((theme) => ({
   },
   submit: {
     margin: theme.spacing(3, 0, 2),
+    backgroundColor: "#51addc",
+    "&:hover": {
+      backgroundColor: "#0070a8",
+    },
+    color: "white",
   },
   error: {
     alignItems: "center",
@@ -127,7 +135,6 @@ const LoginForm = () => {
             type="submit"
             fullWidth
             variant="contained"
-            color="primary"
             className={classes.submit}
           >
             Log In

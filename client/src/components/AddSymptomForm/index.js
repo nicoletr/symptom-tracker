@@ -3,15 +3,15 @@ import { useMutation } from "@apollo/client";
 import { ADD_SYMPTOM } from "../../utils/mutations";
 import { QUERY_SYMPTOMS, QUERY_ME } from "../../utils/queries";
 
-import { makeStyles } from "@material-ui/core/styles";
-import ListItemIcon from "@mui/material/ListItemIcon";
+import { makeStyles } from "@mui/styles";
 import SentimentSatisfiedAltIcon from "@mui/icons-material/SentimentSatisfiedAlt";
 import SentimentNeutralIcon from "@mui/icons-material/SentimentNeutral";
 import SentimentVeryDissatisfiedIcon from "@mui/icons-material/SentimentVeryDissatisfied";
 
-import Button from "@mui/material/Button";
-import Container from "@mui/material/Container";
 import {
+  ListItemIcon,
+  Button,
+  Container,
   Box,
   Grid,
   CssBaseline,

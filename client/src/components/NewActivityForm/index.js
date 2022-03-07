@@ -1,16 +1,13 @@
 import React, { useState } from "react";
-// import { useStoreContext } from "../../utils/GlobalState";
 import { useMutation } from "@apollo/client";
+
 import { ADD_ACTIVITY } from "../../utils/mutations";
 import { QUERY_ACTIVITIES, QUERY_ME } from "../../utils/queries";
-// import FormDatePicker from "../DatePicker";
+
 import AdapterDateFns from "@mui/lab/AdapterDateFns";
 import LocalizationProvider from "@mui/lab/LocalizationProvider";
 import DateTimePicker from "@mui/lab/DateTimePicker";
 
-import Button from "@mui/material/Button";
-import Container from "@mui/material/Container";
-import TextField from "@mui/material/TextField";
 import {
   Box,
   Grid,
@@ -19,8 +16,11 @@ import {
   MenuItem,
   FormControl,
   InputLabel,
+  Button,
+  Container,
+  TextField,
 } from "@mui/material";
-import { makeStyles } from "@material-ui/core/styles";
+import { makeStyles } from "@mui/styles";
 
 const useStyles = makeStyles((theme) => ({
   root: {

@@ -1,14 +1,16 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
+
 import {
   Drawer,
   IconButton,
   List,
   ListItem,
   ListItemText,
-  makeStyles,
-} from "@material-ui/core";
-import MenuIcon from "@material-ui/icons/Menu";
-import { Link } from "react-router-dom";
+} from "@mui/material";
+import MenuIcon from "@mui/icons-material/Menu";
+import { makeStyles } from "@mui/styles";
+
 import AuthService from "../../utils/auth";
 
 const useStyles = makeStyles(() => ({

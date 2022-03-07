@@ -1,11 +1,13 @@
 import React from "react";
 
-import Button from "@mui/material/Button";
-import Container from "@mui/material/Container";
-import Dialog from "@mui/material/Dialog";
-import DialogContent from "@mui/material/DialogContent";
-import DialogTitle from "@mui/material/DialogTitle";
-import { makeStyles } from "@material-ui/core/styles";
+import {
+  Button,
+  Container,
+  Dialog,
+  DialogContent,
+  DialogTitle,
+} from "@mui/material";
+import { makeStyles } from "@mui/styles";
 
 import NewMealForm from "../NewMealForm";
 

@@ -9,6 +9,8 @@ import NewMealButton from "../components/NewMealButton";
 import { useQuery } from "@apollo/client";
 import { QUERY_USER, QUERY_ME } from "../utils/queries";
 import AuthService from "../utils/auth";
+import { ThemeProvider } from "@mui/styles";
+import theme from "../styles/Theme";
 
 const Dashboard = () => {
   const { _id: userParam } = useParams();
@@ -31,34 +33,40 @@ const Dashboard = () => {
   }
 
   return (
-    <Grid
-      container
-      maxWidth="xl"
-      direction="column"
-      alignItems="center"
-      justify="center"
-      style={{ minHeight: "100vh" }}
-    >
-      <Grid item>
-        <Box sx={{ pb: 5 }}>
-          <Typography variant="h4">Welcome back!</Typography>
-        </Box>
+    <ThemeProvider theme={theme}>
+      <Grid
+        container
+        maxWidth="xl"
+        direction="column"
+        alignItems="center"
+        justify="center"
+        style={{ minHeight: "100vh" }}
+      >
+        <Grid item>
+          <Box sx={{ pb: 5 }}>
+            <Typography variant="h4" style={{ marginTop: "1rem" }}>
+              Welcome back!
+            </Typography>
+          </Box>
+        </Grid>
+        <Grid item>
+          <NewActivityButton />
+        </Grid>
+        <Grid item>
+          <NewMealButton />
+        </Grid>
+        <Grid item>
+          <Box sx={{ pb: 5 }}>
+            <Typography variant="body1">
+              Upgrade to Premium today to unlock more features!
+            </Typography>
+          </Box>
+        </Grid>
+        <Grid item>
+          <BottomNav />
+        </Grid>
       </Grid>
-      <Grid item>
-        <NewActivityButton />
-      </Grid>
-      <Grid item>
-        <NewMealButton />
-      </Grid>
-      <Grid item>
-        <Box sx={{ pb: 5 }}>
-          <Typography variant="body1">
-            Upgrade to Premium today to unlock more features!
-          </Typography>
-        </Box>
-      </Grid>
-      <BottomNav />
-    </Grid>
+    </ThemeProvider>
   );
 };
 

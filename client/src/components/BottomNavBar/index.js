@@ -1,9 +1,8 @@
 import { React, useState } from "react";
 import { Link } from "react-router-dom";
 
-import BottomNavigation from "@mui/material/BottomNavigation";
-import BottomNavigationAction from "@mui/material/BottomNavigationAction";
-import Paper from "@mui/material/Paper";
+import { BottomNavigation, BottomNavigationAction, Paper } from "@mui/material";
+
 import HomeIcon from "@mui/icons-material/Home";
 import RestaurantIcon from "@mui/icons-material/Restaurant";
 import FitnessCenterIcon from "@mui/icons-material/FitnessCenter";
