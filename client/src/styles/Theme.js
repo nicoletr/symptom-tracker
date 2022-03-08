@@ -23,6 +23,7 @@ const theme = createTheme({
             border: "none",
             color: "white",
             marginTop: "0.5rem",
+            textDecoration: "none",
           },
         },
       ],

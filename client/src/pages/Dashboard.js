@@ -36,7 +36,7 @@ const Dashboard = () => {
     <ThemeProvider theme={theme}>
       <Grid
         container
-        maxWidth="xl"
+        maxWidth="xs"
         direction="column"
         alignItems="center"
         justify="center"

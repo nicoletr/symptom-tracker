@@ -10,7 +10,7 @@ import "@fontsource/roboto/700.css";
 const Intro = () => {
   return (
     <Grid item xs={12} lg={10}>
-      <Card sx={{ flexGrow: 1, minHeight: "10rem" }}>
+      <Card sx={{ flexGrow: 1, minHeight: "10rem", marginTop: "1rem" }}>
         <CardContent>
           <Typography variant="h4">
             {"Take the effort out of finding what works for your health"}
@@ -24,7 +24,7 @@ const Intro = () => {
         <CardContent>
           <Grid container justifyContent="center">
             <Grid item>
-              <Link to="/signup">
+              <Link to="/signup" style={{ textDecoration: "none" }}>
                 <Button variant="primary">Sign up today!</Button>
               </Link>
             </Grid>

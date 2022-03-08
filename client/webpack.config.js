@@ -42,7 +42,22 @@ module.exports = () => {
         publicPath: "/",
         icons: [
           {
-            src: path.resolve("src/images/logo512.png"),
+            src: path.resolve("src/images/logo.png"),
+            sizes: [96, 128, 192, 256, 384, 512],
+            destination: path.join("assets", "icons"),
+          },
+          {
+            src: path.resolve("src/images/black-outline-logo.png"),
+            sizes: [96, 128, 192, 256, 384, 512],
+            destination: path.join("assets", "icons"),
+          },
+          {
+            src: path.resolve("src/images/black-white-logo.png"),
+            sizes: [96, 128, 192, 256, 384, 512],
+            destination: path.join("assets", "icons"),
+          },
+          {
+            src: path.resolve("src/images/white-outline-logo.png"),
             sizes: [96, 128, 192, 256, 384, 512],
             destination: path.join("assets", "icons"),
           },
