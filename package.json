@@ -1,6 +1,6 @@
 {
   "name": "symptom-tracker",
-  "version": "1.0.1",
+  "version": "1.0.0",
   "description": "Health and fitness logger to track symptoms",
   "main": "y",
   "scripts": {
