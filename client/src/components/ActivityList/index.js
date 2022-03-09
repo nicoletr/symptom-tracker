@@ -1,5 +1,5 @@
 import React from "react";
-import { Grid, Container, Box } from "@mui/material";
+import { Grid, Container, Box, Card } from "@mui/material";
 
 import { useQuery } from "@apollo/client";
 import { QUERY_ME } from "../../utils/queries";
@@ -21,9 +21,11 @@ const ActivityList = () => {
     <Container maxWidth="xl">
       <Box sx={{ flexGrow: 1, mt: 10 }}>
         <Grid container spacing={2}>
-          {activities.map((activity) => (
-            <ActivityCard activity={activity} key={activity._id} />
-          ))}
+          <Card>
+            {activities.map((activity) => (
+              <ActivityCard activity={activity} key={activity._id} />
+            ))}
+          </Card>
         </Grid>
       </Box>
     </Container>

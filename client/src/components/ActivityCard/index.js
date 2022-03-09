@@ -20,7 +20,7 @@ const useStyles = makeStyles((theme) => ({
     height: "100vh",
   },
   paper: {
-    margin: theme.spacing(8, 4),
+    margin: theme.spacing(1),
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
@@ -39,7 +39,7 @@ function ActivityCard(props) {
 
   return (
     <Box sx={{ minWidth: 275 }}>
-      <Card variant="outlined">
+      <Card variant="outlined" className={classes.paper}>
         <CardContent>
           <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
             {props.activity.name}

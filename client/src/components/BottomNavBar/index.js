@@ -23,26 +23,28 @@ function BottomNav() {
       <BottomNavigation value={value} onChange={handleChange}>
         <Link to="/">
           <BottomNavigationAction
+            component={Link}
+            to="/"
             label="Home"
             value="home"
             icon={<HomeIcon />}
           />
         </Link>
-        <Link to="/activities" onClick={handleChange}>
+        <Link to="/activities">
           <BottomNavigationAction
-            label="My Activities"
+            label="Activities"
             value="activities"
             icon={<FitnessCenterIcon />}
           />
         </Link>
-        <Link to="/meals" onClick={handleChange}>
+        <Link to="/meals">
           <BottomNavigationAction
-            label="My Meals"
+            label="Meals"
             value="meals"
             icon={<RestaurantIcon />}
           />
         </Link>
-        <Link to="/symptoms" onClick={handleChange}>
+        <Link to="/symptoms">
           <BottomNavigationAction
             label="My Symptoms"
             value="symptoms"

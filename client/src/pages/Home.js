@@ -6,13 +6,19 @@ import Intro from "../components/Intro";
 
 const Home = () => {
   return (
-    <Container maxWidth="xl">
-      <Box sx={{ flexGrow: 1 }}>
-        <Grid container spacing={2}>
-          {<Intro />}
-        </Grid>
-      </Box>
-    </Container>
+    <Grid
+      container
+      spacing={2}
+      maxWidth="xs"
+      direction="column"
+      alignItems="center"
+      justify="center"
+      style={{ minHeight: "100vh" }}
+    >
+      <Container maxWidth="xl">
+        <Box sx={{ flexGrow: 1 }}>{<Intro />}</Box>
+      </Container>
+    </Grid>
   );
 };
 

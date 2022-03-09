@@ -1,7 +1,7 @@
 import React from "react";
 import { Link, useParams } from "react-router-dom";
 
-import { Container, Box, Typography } from "@mui/material";
+import { Container, Box, Typography, Grid } from "@mui/material";
 import BottomNav from "../components/BottomNavBar";
 import NewActivityButton from "../components/NewActivityButton";
 import ActivityList from "../components/ActivityList";
@@ -32,12 +32,31 @@ const Activities = () => {
 
   return (
     <Container maxWidth="xl">
-      <Box sx={{ pb: 5 }}>
-        <Typography variant="h4">My Logged Activities</Typography>
-      </Box>
-      <NewActivityButton />
-      <ActivityList />
-      <BottomNav />
+      <Grid
+        container
+        maxWidth="xs"
+        direction="column"
+        alignItems="center"
+        justify="center"
+        style={{ minHeight: "100vh" }}
+      >
+        <Grid item xs={12} lg={10}>
+          <Box sx={{ pb: 5 }}>
+            <Typography variant="h4" style={{ marginTop: "1rem" }}>
+              My Logged Activities
+            </Typography>
+          </Box>
+        </Grid>
+        <Grid item xs={12} lg={10}>
+          <NewActivityButton />
+        </Grid>
+        <Grid item xs={12} lg={10}>
+          <ActivityList />
+        </Grid>
+        <Grid item>
+          <BottomNav />
+        </Grid>
+      </Grid>
     </Container>
   );
 };
