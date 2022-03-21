@@ -1,70 +1,50 @@
-# Getting Started with Create React App
+# Symptom Tracker
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+[![License](https://img.shields.io/badge/license-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 
-## Available Scripts
+## Table of Contents
 
-In the project directory, you can run:
+- [Description](#description)
+- [Usage](#usage)
+- [Contributing](#contributing)
+- [Questions](#questions)
+- [Licensing](#licensing)
 
-### `npm start`
+## Description
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+It is not unusual for a person to have recurring undiagnosed health issues. One way to effectively solve the problem is to track your everyday activities and meals, and what symptoms arise alongside them. Parallels can be drawn from having logged information like this which can help in diagnosis. <br>
+This app will help a user log and keep track of their symptoms. A user will be able to see a list of all their entries which can be sorted in different ways to help them see a pattern and hopefully live a healthier, more comfortable lifestyle for them. <br>
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Usage
 
-### `npm test`
+You can find the deployed application [here](symptom-tracker-nt.herokuapp.com)<br>
+Or to download and use locally, follow the below instructions
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+```
+1. Run 'npm run start'
+2. Open using port 3000 (or whichever you specify in the server index.js)
+3. Install to your desktop to use offline
+```
 
-### `npm run build`
+## Contributing
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+To contribute to this repo, follow the below steps:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+```
+1. Clone the remote repo to your local
+2. Create your branch
+3. Add, commit, push your branch to the remote repo
+4. Create a pull request
+5. Wait for approvals, comments, and/or change requests
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Questions
 
-### `npm run eject`
+For any additional questions, you can reach me at:<br>
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+- GitHub: [nicoletr](https://github.com/nicoletr) <br>
+- Email: [nicole.trpevski@gmail.com](mailto:nicole.trpevski@gmail.com)<br>
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Licensing
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+This project is licensed under [MIT](https://opensource.org/licenses/MIT)
