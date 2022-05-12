@@ -11,6 +11,10 @@
     "seed": "cd server && npm run seed",
     "build": "cd client && npm run build"
   },
+  "engines": {
+    "node": "14.x",
+    "npm": "6.x"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/nicoletr/symptom-tracker.git"
